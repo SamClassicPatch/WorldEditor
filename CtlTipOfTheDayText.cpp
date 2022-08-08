@@ -90,7 +90,11 @@ void CCtlTipOfTheDayText::OnPaint()
   lf.lfHeight = 145;
   lf.lfWeight = FW_BOLD;
   lf.lfItalic = FALSE;
-  wcscpy(lf.lfFaceName, L"Times New Roman");
+  #ifdef UNICODE
+    wcscpy(lf.lfFaceName, _T("Times New Roman"));
+  #else
+    strcpy(lf.lfFaceName, _T("Times New Roman"));
+  #endif
   CFont fontBig;
   fontBig.CreatePointFontIndirect (&lf);
 
@@ -98,7 +102,11 @@ void CCtlTipOfTheDayText::OnPaint()
   lf.lfHeight = 100;
   lf.lfWeight = FW_NORMAL;
   lf.lfItalic = FALSE;
-  wcscpy(lf.lfFaceName, L"Arial");
+  #ifdef UNICODE
+    wcscpy(lf.lfFaceName, _T("Arial"));
+  #else
+    strcpy(lf.lfFaceName, _T("Arial"));
+  #endif
   CFont fontSmall;
   fontSmall.CreatePointFontIndirect (&lf);
 
