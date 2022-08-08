@@ -48,10 +48,10 @@ CWndDisplayTexture::~CWndDisplayTexture()
 
 
 BEGIN_MESSAGE_MAP(CWndDisplayTexture, CWnd)
-	//{{AFX_MSG_MAP(CWndDisplayTexture)
-	ON_WM_PAINT()
-	ON_WM_KILLFOCUS()
-	//}}AFX_MSG_MAP
+  //{{AFX_MSG_MAP(CWndDisplayTexture)
+  ON_WM_PAINT()
+  ON_WM_KILLFOCUS()
+  //}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 
@@ -191,5 +191,5 @@ BOOL CWndDisplayTexture::PreTranslateMessage(MSG* pMsg)
     DeleteTempMap();
     return TRUE;
   }
-	return CWnd::PreTranslateMessage(pMsg);
+  return CWnd::PreTranslateMessage(pMsg);
 }

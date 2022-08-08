@@ -59,13 +59,13 @@ CWndTerrainTilePalette::~CWndTerrainTilePalette()
 
 
 BEGIN_MESSAGE_MAP(CWndTerrainTilePalette, CWnd)
-	//{{AFX_MSG_MAP(CWndTerrainTilePalette)
-	ON_WM_PAINT()
-	ON_WM_KILLFOCUS()
-	ON_WM_LBUTTONDOWN()
-	ON_WM_TIMER()
-	ON_WM_LBUTTONUP()
-	//}}AFX_MSG_MAP
+  //{{AFX_MSG_MAP(CWndTerrainTilePalette)
+  ON_WM_PAINT()
+  ON_WM_KILLFOCUS()
+  ON_WM_LBUTTONDOWN()
+  ON_WM_TIMER()
+  ON_WM_LBUTTONUP()
+  //}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 
@@ -307,7 +307,7 @@ BOOL CWndTerrainTilePalette::PreTranslateMessage(MSG* pMsg)
     DeleteTempMap();
     return TRUE;
   }
-	return CWnd::PreTranslateMessage(pMsg);
+  return CWnd::PreTranslateMessage(pMsg);
 }
 
 void CWndTerrainTilePalette::OnLButtonDown(UINT nFlags, CPoint point) 
@@ -328,8 +328,8 @@ void CWndTerrainTilePalette::OnTimer(UINT nIDEvent)
     return;
   }
 
-  Invalidate(FALSE);	
-	CWnd::OnTimer(nIDEvent);
+  Invalidate(FALSE);  
+  CWnd::OnTimer(nIDEvent);
 }
 
 void CWndTerrainTilePalette::OnLButtonUp(UINT nFlags, CPoint point) 

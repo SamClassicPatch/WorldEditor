@@ -1162,12 +1162,12 @@ void ObtainLayerTileInfo(CDynamicContainer<CTileInfo> *pdcTileInfo, CTextureData
   INDEX ctParsedLines=0;
   try
   {
-	  char achrLine[ 256];
+    char achrLine[ 256];
     CTFileStream strm;
-  	strm.Open_t( fnTileInfo);
+    strm.Open_t( fnTileInfo);
 
-	  FOREVER
-	  {
+    FOREVER
+    {
       CDynamicContainer<CTString> dcTokens;
 
       strm.GetLine_t(achrLine, 256);

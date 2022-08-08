@@ -40,89 +40,89 @@ extern COLOR acol_ColorizePallete[];
 IMPLEMENT_DYNCREATE(CWorldEditorDoc, CDocument)
 
 BEGIN_MESSAGE_MAP(CWorldEditorDoc, CDocument)
-	//{{AFX_MSG_MAP(CWorldEditorDoc)
-	ON_COMMAND(ID_CSG_SPLIT_SECTORS, OnCsgSplitSectors)
-	ON_UPDATE_COMMAND_UI(ID_CSG_SPLIT_SECTORS, OnUpdateCsgSplitSectors)
-	ON_COMMAND(ID_CSG_CANCEL, OnCsgCancel)
-	ON_COMMAND(ID_SHOW_ORIENTATION, OnShowOrientation)
-	ON_UPDATE_COMMAND_UI(ID_SHOW_ORIENTATION, OnUpdateShowOrientation)
-	ON_COMMAND(ID_EDIT_UNDO, OnEditUndo)
-	ON_COMMAND(ID_EDIT_REDO, OnEditRedo)
-	ON_UPDATE_COMMAND_UI(ID_EDIT_UNDO, OnUpdateEditUndo)
-	ON_UPDATE_COMMAND_UI(ID_EDIT_REDO, OnUpdateEditRedo)
-	ON_COMMAND(ID_WORLD_SETTINGS, OnWorldSettings)
-	ON_COMMAND(ID_CSG_JOIN_SECTORS, OnCsgJoinSectors)
-	ON_UPDATE_COMMAND_UI(ID_CSG_JOIN_SECTORS, OnUpdateCsgJoinSectors)
-	ON_COMMAND(ID_AUTO_SNAP, OnAutoSnap)
-	ON_COMMAND(ID_CSG_ADD, OnCsgAdd)
-	ON_UPDATE_COMMAND_UI(ID_CSG_ADD, OnUpdateCsgAdd)
-	ON_COMMAND(ID_CSG_REMOVE, OnCsgRemove)
-	ON_UPDATE_COMMAND_UI(ID_CSG_REMOVE, OnUpdateCsgRemove)
-	ON_COMMAND(ID_CSG_SPLIT_POLYGONS, OnCsgSplitPolygons)
-	ON_UPDATE_COMMAND_UI(ID_CSG_SPLIT_POLYGONS, OnUpdateCsgSplitPolygons)
-	ON_COMMAND(ID_CSG_JOIN_POLYGONS, OnCsgJoinPolygons)
-	ON_UPDATE_COMMAND_UI(ID_CSG_JOIN_POLYGONS, OnUpdateCsgJoinPolygons)
-	ON_COMMAND(ID_CALCULATESHADOWS, OnCalculateShadows)
-	ON_COMMAND(ID_BROWSE_ENTITIES_MODE, OnBrowseEntitiesMode)
-	ON_UPDATE_COMMAND_UI(ID_BROWSE_ENTITIES_MODE, OnUpdateBrowseEntitiesMode)
-	ON_COMMAND(ID_PREVIOUS_SELECTED_ENTITY, OnPreviousSelectedEntity)
-	ON_UPDATE_COMMAND_UI(ID_PREVIOUS_SELECTED_ENTITY, OnUpdatePreviousSelectedEntity)
-	ON_COMMAND(ID_NEXT_SELECTED_ENTITY, OnNextSelectedEntity)
-	ON_UPDATE_COMMAND_UI(ID_NEXT_SELECTED_ENTITY, OnUpdateNextSelectedEntity)
-	ON_COMMAND(ID_JOIN_LAYERS, OnJoinLayers)
-	ON_UPDATE_COMMAND_UI(ID_AUTO_SNAP, OnUpdateAutoSnap)
-	ON_COMMAND(ID_SELECT_BY_CLASS, OnSelectByClass)
-	ON_UPDATE_COMMAND_UI(ID_SELECT_BY_CLASS, OnUpdateSelectByClass)
-	ON_COMMAND(ID_CSG_JOIN_ALL_POLYGONS, OnCsgJoinAllPolygons)
-	ON_UPDATE_COMMAND_UI(ID_CSG_JOIN_ALL_POLYGONS, OnUpdateCsgJoinAllPolygons)
-	ON_COMMAND(ID_TEXTURE_1, OnTexture1)
-	ON_UPDATE_COMMAND_UI(ID_TEXTURE_1, OnUpdateTexture1)
-	ON_COMMAND(ID_TEXTURE_2, OnTexture2)
-	ON_UPDATE_COMMAND_UI(ID_TEXTURE_2, OnUpdateTexture2)
-	ON_COMMAND(ID_TEXTURE_3, OnTexture3)
-	ON_UPDATE_COMMAND_UI(ID_TEXTURE_3, OnUpdateTexture3)
-	ON_COMMAND(ID_TEXTURE_MODE_1, OnTextureMode1)
-	ON_COMMAND(ID_TEXTURE_MODE_2, OnTextureMode2)
-	ON_COMMAND(ID_TEXTURE_MODE_3, OnTextureMode3)
-	ON_COMMAND(ID_SAVE_THUMBNAIL, OnSaveThumbnail)
-	ON_COMMAND(ID_UPDATE_LINKS, OnUpdateLinks)
-	ON_COMMAND(ID_SNAPSHOT, OnSnapshot)
-	ON_COMMAND(ID_MIRROR_AND_STRETCH, OnMirrorAndStretch)
-	ON_COMMAND(ID_FLIP_LAYER, OnFlipLayer)
-	ON_UPDATE_COMMAND_UI(ID_FLIP_LAYER, OnUpdateFlipLayer)
-	ON_COMMAND(ID_FILTER_SELECTION, OnFilterSelection)
-	ON_COMMAND(ID_UPDATE_CLONES, OnUpdateClones)
-	ON_UPDATE_COMMAND_UI(ID_UPDATE_CLONES, OnUpdateUpdateClones)
-	ON_COMMAND(ID_HIDE_SELECTED, OnHideSelected)
-	ON_UPDATE_COMMAND_UI(ID_HIDE_SELECTED, OnUpdateHideSelected)
-	ON_COMMAND(ID_HIDE_UNSELECTED, OnHideUnselected)
-	ON_COMMAND(ID_SHOW_ALL, OnShowAll)
-	ON_COMMAND(ID_CHECK_EDIT, OnCheckEdit)
-	ON_COMMAND(ID_CHECK_ADD, OnCheckAdd)
+  //{{AFX_MSG_MAP(CWorldEditorDoc)
+  ON_COMMAND(ID_CSG_SPLIT_SECTORS, OnCsgSplitSectors)
+  ON_UPDATE_COMMAND_UI(ID_CSG_SPLIT_SECTORS, OnUpdateCsgSplitSectors)
+  ON_COMMAND(ID_CSG_CANCEL, OnCsgCancel)
+  ON_COMMAND(ID_SHOW_ORIENTATION, OnShowOrientation)
+  ON_UPDATE_COMMAND_UI(ID_SHOW_ORIENTATION, OnUpdateShowOrientation)
+  ON_COMMAND(ID_EDIT_UNDO, OnEditUndo)
+  ON_COMMAND(ID_EDIT_REDO, OnEditRedo)
+  ON_UPDATE_COMMAND_UI(ID_EDIT_UNDO, OnUpdateEditUndo)
+  ON_UPDATE_COMMAND_UI(ID_EDIT_REDO, OnUpdateEditRedo)
+  ON_COMMAND(ID_WORLD_SETTINGS, OnWorldSettings)
+  ON_COMMAND(ID_CSG_JOIN_SECTORS, OnCsgJoinSectors)
+  ON_UPDATE_COMMAND_UI(ID_CSG_JOIN_SECTORS, OnUpdateCsgJoinSectors)
+  ON_COMMAND(ID_AUTO_SNAP, OnAutoSnap)
+  ON_COMMAND(ID_CSG_ADD, OnCsgAdd)
+  ON_UPDATE_COMMAND_UI(ID_CSG_ADD, OnUpdateCsgAdd)
+  ON_COMMAND(ID_CSG_REMOVE, OnCsgRemove)
+  ON_UPDATE_COMMAND_UI(ID_CSG_REMOVE, OnUpdateCsgRemove)
+  ON_COMMAND(ID_CSG_SPLIT_POLYGONS, OnCsgSplitPolygons)
+  ON_UPDATE_COMMAND_UI(ID_CSG_SPLIT_POLYGONS, OnUpdateCsgSplitPolygons)
+  ON_COMMAND(ID_CSG_JOIN_POLYGONS, OnCsgJoinPolygons)
+  ON_UPDATE_COMMAND_UI(ID_CSG_JOIN_POLYGONS, OnUpdateCsgJoinPolygons)
+  ON_COMMAND(ID_CALCULATESHADOWS, OnCalculateShadows)
+  ON_COMMAND(ID_BROWSE_ENTITIES_MODE, OnBrowseEntitiesMode)
+  ON_UPDATE_COMMAND_UI(ID_BROWSE_ENTITIES_MODE, OnUpdateBrowseEntitiesMode)
+  ON_COMMAND(ID_PREVIOUS_SELECTED_ENTITY, OnPreviousSelectedEntity)
+  ON_UPDATE_COMMAND_UI(ID_PREVIOUS_SELECTED_ENTITY, OnUpdatePreviousSelectedEntity)
+  ON_COMMAND(ID_NEXT_SELECTED_ENTITY, OnNextSelectedEntity)
+  ON_UPDATE_COMMAND_UI(ID_NEXT_SELECTED_ENTITY, OnUpdateNextSelectedEntity)
+  ON_COMMAND(ID_JOIN_LAYERS, OnJoinLayers)
+  ON_UPDATE_COMMAND_UI(ID_AUTO_SNAP, OnUpdateAutoSnap)
+  ON_COMMAND(ID_SELECT_BY_CLASS, OnSelectByClass)
+  ON_UPDATE_COMMAND_UI(ID_SELECT_BY_CLASS, OnUpdateSelectByClass)
+  ON_COMMAND(ID_CSG_JOIN_ALL_POLYGONS, OnCsgJoinAllPolygons)
+  ON_UPDATE_COMMAND_UI(ID_CSG_JOIN_ALL_POLYGONS, OnUpdateCsgJoinAllPolygons)
+  ON_COMMAND(ID_TEXTURE_1, OnTexture1)
+  ON_UPDATE_COMMAND_UI(ID_TEXTURE_1, OnUpdateTexture1)
+  ON_COMMAND(ID_TEXTURE_2, OnTexture2)
+  ON_UPDATE_COMMAND_UI(ID_TEXTURE_2, OnUpdateTexture2)
+  ON_COMMAND(ID_TEXTURE_3, OnTexture3)
+  ON_UPDATE_COMMAND_UI(ID_TEXTURE_3, OnUpdateTexture3)
+  ON_COMMAND(ID_TEXTURE_MODE_1, OnTextureMode1)
+  ON_COMMAND(ID_TEXTURE_MODE_2, OnTextureMode2)
+  ON_COMMAND(ID_TEXTURE_MODE_3, OnTextureMode3)
+  ON_COMMAND(ID_SAVE_THUMBNAIL, OnSaveThumbnail)
+  ON_COMMAND(ID_UPDATE_LINKS, OnUpdateLinks)
+  ON_COMMAND(ID_SNAPSHOT, OnSnapshot)
+  ON_COMMAND(ID_MIRROR_AND_STRETCH, OnMirrorAndStretch)
+  ON_COMMAND(ID_FLIP_LAYER, OnFlipLayer)
+  ON_UPDATE_COMMAND_UI(ID_FLIP_LAYER, OnUpdateFlipLayer)
+  ON_COMMAND(ID_FILTER_SELECTION, OnFilterSelection)
+  ON_COMMAND(ID_UPDATE_CLONES, OnUpdateClones)
+  ON_UPDATE_COMMAND_UI(ID_UPDATE_CLONES, OnUpdateUpdateClones)
+  ON_COMMAND(ID_HIDE_SELECTED, OnHideSelected)
+  ON_UPDATE_COMMAND_UI(ID_HIDE_SELECTED, OnUpdateHideSelected)
+  ON_COMMAND(ID_HIDE_UNSELECTED, OnHideUnselected)
+  ON_COMMAND(ID_SHOW_ALL, OnShowAll)
+  ON_COMMAND(ID_CHECK_EDIT, OnCheckEdit)
+  ON_COMMAND(ID_CHECK_ADD, OnCheckAdd)
         ON_COMMAND(ID_CHECK_DELETE, OnCheckDelete)
-	ON_UPDATE_COMMAND_UI(ID_CHECK_EDIT, OnUpdateCheckEdit)
-	ON_UPDATE_COMMAND_UI(ID_CHECK_ADD, OnUpdateCheckAdd)
+  ON_UPDATE_COMMAND_UI(ID_CHECK_EDIT, OnUpdateCheckEdit)
+  ON_UPDATE_COMMAND_UI(ID_CHECK_ADD, OnUpdateCheckAdd)
         ON_UPDATE_COMMAND_UI(ID_CHECK_DELETE, OnUpdateCheckDelete)
-	ON_COMMAND(ID_UPDATE_BRUSHES, OnUpdateBrushes)
-	ON_COMMAND(ID_SELECT_BY_CLASS_IMPORTANT, OnSelectByClassImportant)
-	ON_COMMAND(ID_INSERT_3D_OBJECT, OnInsert3dObject)
-	ON_COMMAND(ID_EXPORT_3D_OBJECT, OnExport3dObject)
-	ON_UPDATE_COMMAND_UI(ID_EXPORT_3D_OBJECT, OnUpdateExport3dObject)
-	ON_COMMAND(ID_CROSSROAD_FOR_N, OnCrossroadForN)
-	ON_COMMAND(ID_POPUP_VTX_ALLIGN, OnPopupVtxAllign)
-	ON_COMMAND(ID_POPUP_VTX_FILTER, OnPopupVtxFilter)
-	ON_COMMAND(ID_POPUP_VTX_NUMERIC, OnPopupVtxNumeric)
-	ON_COMMAND(ID_HIDE_SELECTED_SECTORS, OnHideSelectedSectors)
-	ON_COMMAND(ID_HIDE_UNSELECTED_SECTORS, OnHideUnselectedSectors)
-	ON_COMMAND(ID_SHOW_ALL_SECTORS, OnShowAllSectors)
-	ON_COMMAND(ID_TEXTURE_MODE_4, OnTextureMode4)
-	ON_COMMAND(ID_TEXTURE_MODE_5, OnTextureMode5)
-	ON_COMMAND(ID_TEXTURE_MODE_6, OnTextureMode6)
-	ON_COMMAND(ID_TEXTURE_MODE_7, OnTextureMode7)
-	ON_COMMAND(ID_TEXTURE_MODE_8, OnTextureMode8)
-	ON_COMMAND(ID_TEXTURE_MODE_9, OnTextureMode9)
-	ON_COMMAND(ID_TEXTURE_MODE_10, OnTextureMode10)
-	//}}AFX_MSG_MAP
+  ON_COMMAND(ID_UPDATE_BRUSHES, OnUpdateBrushes)
+  ON_COMMAND(ID_SELECT_BY_CLASS_IMPORTANT, OnSelectByClassImportant)
+  ON_COMMAND(ID_INSERT_3D_OBJECT, OnInsert3dObject)
+  ON_COMMAND(ID_EXPORT_3D_OBJECT, OnExport3dObject)
+  ON_UPDATE_COMMAND_UI(ID_EXPORT_3D_OBJECT, OnUpdateExport3dObject)
+  ON_COMMAND(ID_CROSSROAD_FOR_N, OnCrossroadForN)
+  ON_COMMAND(ID_POPUP_VTX_ALLIGN, OnPopupVtxAllign)
+  ON_COMMAND(ID_POPUP_VTX_FILTER, OnPopupVtxFilter)
+  ON_COMMAND(ID_POPUP_VTX_NUMERIC, OnPopupVtxNumeric)
+  ON_COMMAND(ID_HIDE_SELECTED_SECTORS, OnHideSelectedSectors)
+  ON_COMMAND(ID_HIDE_UNSELECTED_SECTORS, OnHideUnselectedSectors)
+  ON_COMMAND(ID_SHOW_ALL_SECTORS, OnShowAllSectors)
+  ON_COMMAND(ID_TEXTURE_MODE_4, OnTextureMode4)
+  ON_COMMAND(ID_TEXTURE_MODE_5, OnTextureMode5)
+  ON_COMMAND(ID_TEXTURE_MODE_6, OnTextureMode6)
+  ON_COMMAND(ID_TEXTURE_MODE_7, OnTextureMode7)
+  ON_COMMAND(ID_TEXTURE_MODE_8, OnTextureMode8)
+  ON_COMMAND(ID_TEXTURE_MODE_9, OnTextureMode9)
+  ON_COMMAND(ID_TEXTURE_MODE_10, OnTextureMode10)
+  //}}AFX_MSG_MAP
   ON_COMMAND(ID_EXPORT_PLACEMENTS, OnExportPlacements)
   ON_COMMAND(ID_EXPORT_ENTITIES, OnExportEntities)
 END_MESSAGE_MAP()
@@ -217,7 +217,7 @@ CWorldEditorDoc::~CWorldEditorDoc()
   // delete redo
   FORDELETELIST(CUndo, m_lnListNode, m_lhRedo, itRedo)
   { 
-		delete &itRedo.Current();
+    delete &itRedo.Current();
   }
 }
 
@@ -356,8 +356,8 @@ void CWorldEditorDoc::SetEditingMode( INDEX iNewMode)
 
 BOOL CWorldEditorDoc::OnNewDocument()
 {
-	if (!CDocument::OnNewDocument())
-		return FALSE;
+  if (!CDocument::OnNewDocument())
+    return FALSE;
 
   // create the World entity
   CPlacement3D plWorld;
@@ -380,7 +380,7 @@ BOOL CWorldEditorDoc::OnNewDocument()
   penWorldBase->SendEvent( eFirstWorldBase);
   CEntity::HandleSentEvents();
 
-	return TRUE;
+  return TRUE;
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -398,12 +398,12 @@ void CWorldEditorDoc::Serialize(CArchive& ar)
 #ifdef _DEBUG
 void CWorldEditorDoc::AssertValid() const
 {
-	CDocument::AssertValid();
+  CDocument::AssertValid();
 }
 
 void CWorldEditorDoc::Dump(CDumpContext& dc) const
 {
-	CDocument::Dump(dc);
+  CDocument::Dump(dc);
 }
 #endif //_DEBUG
 
@@ -515,7 +515,7 @@ BOOL CWorldEditorDoc::OnOpenDocument(LPCTSTR lpszPathName)
   }
   // flush stale caches
   _pShell->Execute("FreeUnusedStock();");
-	return TRUE;
+  return TRUE;
 }
 
 // overridden from mfc
@@ -803,7 +803,7 @@ void CWorldEditorDoc::ApplyCSG(enum CSGType CSGType)
   BOOL bOtherFound = FALSE;
 
   // calculate delta placement
-	m_plDeltaPlacement = m_plSecondLayer;
+  m_plDeltaPlacement = m_plSecondLayer;
   // convert it into absolute space of last used placement (delta calculated)
   m_plDeltaPlacement.AbsoluteToRelative( m_plLastPlacement);
   // remember position of last applied CSG
@@ -2208,7 +2208,7 @@ void CWorldEditorDoc::CreateTerrainObject3D( CImageInfo *piiDisplace, INDEX iSli
     oedg.oed_Vertex1 = &osec.osc_aovxVertices[START_OF_CEILING_VERTICES+0];
   }
 
-	// get material
+  // get material
   CObjectMaterial &omat = *_pomMaterial;
 
   // allocate polygons and their planes
@@ -2676,7 +2676,7 @@ void CWorldEditorDoc::RememberUndo(void)
   // delete redo list
   FORDELETELIST(CUndo, m_lnListNode, m_lhRedo, itRedo)
   { 
-		delete &itRedo.Current();
+    delete &itRedo.Current();
   }
 
   // while there are more members in undo buffer than allowed or list isn't empty
@@ -3169,7 +3169,7 @@ void CWorldEditorDoc::OnCsgCancel()
 {
   if( m_iMode == CSG_MODE)
   {
-    CancelCSG();	
+    CancelCSG();  
   }
   else
   {
@@ -3192,7 +3192,7 @@ void CWorldEditorDoc::OnUpdateShowOrientation(CCmdUI* pCmdUI)
 
 void CWorldEditorDoc::OnAutoSnap() 
 {
-  m_bAutoSnap = !m_bAutoSnap;		
+  m_bAutoSnap = !m_bAutoSnap;    
 }
 
 void CWorldEditorDoc::OnUpdateAutoSnap(CCmdUI* pCmdUI) 
@@ -3272,7 +3272,7 @@ void CWorldEditorDoc::OnShowAll()
 
 void CWorldEditorDoc::OnUpdateHideSelected(CCmdUI* pCmdUI) 
 {
-	// enable button if selection is not empty
+  // enable button if selection is not empty
   if( m_iMode == ENTITY_MODE)
   {
     pCmdUI->Enable( m_selEntitySelection.Count() != 0);
@@ -3280,20 +3280,20 @@ void CWorldEditorDoc::OnUpdateHideSelected(CCmdUI* pCmdUI)
   else
   {
     pCmdUI->Enable( m_selSectorSelection.Count() != 0);
-  }	
+  }  
 }
 
 void CWorldEditorDoc::OnHideSelectedSectors() 
 {
-	// hide selected sectors
-	m_woWorld.HideSelectedSectors( m_selSectorSelection);
+  // hide selected sectors
+  m_woWorld.HideSelectedSectors( m_selSectorSelection);
   // update all views
   UpdateAllViews( NULL);
 }
 
 void CWorldEditorDoc::OnHideUnselectedSectors() 
 {
-	// hide unselected sectors
+  // hide unselected sectors
   m_woWorld.HideUnselectedSectors();
   // update all views
   UpdateAllViews( NULL);
@@ -3301,7 +3301,7 @@ void CWorldEditorDoc::OnHideUnselectedSectors()
 
 void CWorldEditorDoc::OnShowAllSectors() 
 {
-	// hide unselected sectors
+  // hide unselected sectors
   m_woWorld.ShowAllSectors();
   // update all views
   UpdateAllViews( NULL);
@@ -3309,15 +3309,15 @@ void CWorldEditorDoc::OnShowAllSectors()
 
 void CWorldEditorDoc::OnHideSelectedEntities() 
 {
-	// hide selected entities
-	m_woWorld.HideSelectedEntities( m_selEntitySelection);
+  // hide selected entities
+  m_woWorld.HideSelectedEntities( m_selEntitySelection);
   // update all views
   UpdateAllViews( NULL);
 }
 
 void CWorldEditorDoc::OnHideUnselectedEntities() 
 {
-	// hide unselected entities
+  // hide unselected entities
   m_woWorld.HideUnselectedEntities();
   // update all views
   UpdateAllViews( NULL);
@@ -3325,7 +3325,7 @@ void CWorldEditorDoc::OnHideUnselectedEntities()
 
 void CWorldEditorDoc::OnShowAllEntities() 
 {
-	// hide unselected entities
+  // hide unselected entities
   m_woWorld.ShowAllEntities();
   // update all views
   UpdateAllViews( NULL);
@@ -3481,8 +3481,8 @@ void CWorldEditorDoc::OnBrowseEntitiesMode()
 }
 void CWorldEditorDoc::OnUpdateBrowseEntitiesMode(CCmdUI* pCmdUI) 
 {
-  pCmdUI->SetCheck(	m_bBrowseEntitiesMode);
-  pCmdUI->Enable(	GetEditingMode() == ENTITY_MODE);
+  pCmdUI->SetCheck(  m_bBrowseEntitiesMode);
+  pCmdUI->Enable(  GetEditingMode() == ENTITY_MODE);
 }
 
 void CWorldEditorDoc::OnPreviousSelectedEntity() 
@@ -3523,11 +3523,11 @@ void CWorldEditorDoc::OnNextSelectedEntity()
 
 void CWorldEditorDoc::OnUpdatePreviousSelectedEntity(CCmdUI* pCmdUI) 
 {
-  pCmdUI->Enable(	m_cenEntitiesSelectedByVolume.Count()>0);
+  pCmdUI->Enable(  m_cenEntitiesSelectedByVolume.Count()>0);
 }
 void CWorldEditorDoc::OnUpdateNextSelectedEntity(CCmdUI* pCmdUI) 
 {
-  pCmdUI->Enable(	m_cenEntitiesSelectedByVolume.Count()>0);
+  pCmdUI->Enable(  m_cenEntitiesSelectedByVolume.Count()>0);
 }
 
 void CWorldEditorDoc::OnSelectAllInVolume( void)
@@ -3562,7 +3562,7 @@ void CWorldEditorDoc::OnJoinLayers()
 
 void CWorldEditorDoc::OnUpdateSelectByClass(CCmdUI* pCmdUI) 
 {
-  pCmdUI->Enable(	TRUE);
+  pCmdUI->Enable(  TRUE);
 }
 
 void CWorldEditorDoc::OnSelectByClass() 
@@ -4035,12 +4035,12 @@ BOOL CWorldEditorDoc::IsCloneUpdatingAllowed(void)
     }
   }
   // disable clone updating
-  return	FALSE;
+  return  FALSE;
 }
 
 void CWorldEditorDoc::OnUpdateUpdateClones(CCmdUI* pCmdUI) 
 {
-  pCmdUI->Enable(	IsCloneUpdatingAllowed() );
+  pCmdUI->Enable(  IsCloneUpdatingAllowed() );
 }
 
 // delete selected entity with all descendents
@@ -4534,7 +4534,7 @@ BOOL CWorldEditorDoc::IsBrushUpdatingAllowed(void)
     }
   }
   // disable updating
-  return	FALSE;
+  return  FALSE;
 }
 
 void CWorldEditorDoc::OnUpdateBrushes() 

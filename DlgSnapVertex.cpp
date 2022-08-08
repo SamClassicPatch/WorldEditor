@@ -32,20 +32,20 @@ static char THIS_FILE[] = __FILE__;
 
 
 CDlgSnapVertex::CDlgSnapVertex(CWnd* pParent /*=NULL*/)
-	: CDialog(CDlgSnapVertex::IDD, pParent)
+  : CDialog(CDlgSnapVertex::IDD, pParent)
 {
-	//{{AFX_DATA_INIT(CDlgSnapVertex)
-	m_fX = 0.0f;
-	m_fY = 0.0f;
-	m_fZ = 0.0f;
-	//}}AFX_DATA_INIT
+  //{{AFX_DATA_INIT(CDlgSnapVertex)
+  m_fX = 0.0f;
+  m_fY = 0.0f;
+  m_fZ = 0.0f;
+  //}}AFX_DATA_INIT
 }
 
 
 void CDlgSnapVertex::DoDataExchange(CDataExchange* pDX)
 {
   CWorldEditorDoc* pDoc = theApp.GetActiveDocument();
-	CDialog::DoDataExchange(pDX);
+  CDialog::DoDataExchange(pDX);
 
   if( pDX->m_bSaveAndValidate == FALSE)
   {
@@ -56,11 +56,11 @@ void CDlgSnapVertex::DoDataExchange(CDataExchange* pDX)
     m_fZ=vFirst(3);
   }
 
-	//{{AFX_DATA_MAP(CDlgSnapVertex)
-	DDX_SkyFloat(pDX, IDC_VTX_SNAP_X, m_fX);
-	DDX_SkyFloat(pDX, IDC_VTX_SNAP_Y, m_fY);
-	DDX_SkyFloat(pDX, IDC_VTX_SNAP_Z, m_fZ);
-	//}}AFX_DATA_MAP
+  //{{AFX_DATA_MAP(CDlgSnapVertex)
+  DDX_SkyFloat(pDX, IDC_VTX_SNAP_X, m_fX);
+  DDX_SkyFloat(pDX, IDC_VTX_SNAP_Y, m_fY);
+  DDX_SkyFloat(pDX, IDC_VTX_SNAP_Z, m_fZ);
+  //}}AFX_DATA_MAP
 
   // if dialog is recieving data
   if( pDX->m_bSaveAndValidate == FALSE)
@@ -117,9 +117,9 @@ void CDlgSnapVertex::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CDlgSnapVertex, CDialog)
-	//{{AFX_MSG_MAP(CDlgSnapVertex)
-		// NOTE: the ClassWizard will add message map macros here
-	//}}AFX_MSG_MAP
+  //{{AFX_MSG_MAP(CDlgSnapVertex)
+    // NOTE: the ClassWizard will add message map macros here
+  //}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -127,7 +127,7 @@ END_MESSAGE_MAP()
 
 BOOL CDlgSnapVertex::PreTranslateMessage(MSG* pMsg) 
 {
-	if(pMsg->message==WM_KEYDOWN)
+  if(pMsg->message==WM_KEYDOWN)
   {
     if( pMsg->wParam==VK_ESCAPE)
     {
@@ -135,6 +135,6 @@ BOOL CDlgSnapVertex::PreTranslateMessage(MSG* pMsg)
       return TRUE;
     }
   }
-	
-	return CDialog::PreTranslateMessage(pMsg);
+  
+  return CDialog::PreTranslateMessage(pMsg);
 }

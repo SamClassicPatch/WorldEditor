@@ -13,14 +13,14 @@ You should have received a copy of the GNU General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. */
 
-#define VC_EXTRALEAN		// Exclude rarely-used stuff from Windows headers
+#define VC_EXTRALEAN    // Exclude rarely-used stuff from Windows headers
 
 #include <afxwin.h>         // MFC core and standard components
 #include <afxext.h>         // MFC extensions
 #include <afxadv.h>
 #include <afxole.h>
 #ifndef _AFX_NO_AFXCMN_SUPPORT
-#include <afxcmn.h>			// MFC support for Windows Common Controls
+#include <afxcmn.h>      // MFC support for Windows Common Controls
 #endif // _AFX_NO_AFXCMN_SUPPORT
 #include <htmlhelp.h>
 

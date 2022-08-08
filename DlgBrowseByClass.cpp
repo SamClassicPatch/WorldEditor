@@ -393,13 +393,13 @@ int CALLBACK SortEntities(LPARAM lParam1, LPARAM lParam2, LPARAM lParamSort)
 }
 
 CDlgBrowseByClass::CDlgBrowseByClass(CWnd* pParent /*=NULL*/)
-	: CDialog(CDlgBrowseByClass::IDD, pParent)
+  : CDialog(CDlgBrowseByClass::IDD, pParent)
 {
-	//{{AFX_DATA_INIT(CDlgBrowseByClass)
-	m_strEntitiesInVolume = _T("");
-	m_bShowVolume = FALSE;
-	m_bShowImportants = FALSE;
-	//}}AFX_DATA_INIT
+  //{{AFX_DATA_INIT(CDlgBrowseByClass)
+  m_strEntitiesInVolume = _T("");
+  m_bShowVolume = FALSE;
+  m_bShowImportants = FALSE;
+  //}}AFX_DATA_INIT
 
   m_bCenterSelected = FALSE;
 }
@@ -411,7 +411,7 @@ CDlgBrowseByClass::~CDlgBrowseByClass()
 
 void CDlgBrowseByClass::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+  CDialog::DoDataExchange(pDX);
 
   CWorldEditorDoc *pDoc = theApp.GetDocument();
 
@@ -428,13 +428,13 @@ void CDlgBrowseByClass::DoDataExchange(CDataExchange* pDX)
     if( iSelectedItem != -1) m_listEntities.EnsureVisible( iSelectedItem, FALSE);
   }
 
-	//{{AFX_DATA_MAP(CDlgBrowseByClass)
-	DDX_Control(pDX, IDC_PLUGGINS, m_ctrlPluggins);
-	DDX_Control(pDX, IDC_ENTITY_LIST, m_listEntities);
-	DDX_Text(pDX, IDC_ENTITIES_IN_VOLUME_T, m_strEntitiesInVolume);
-	DDX_Check(pDX, IDC_DISPLAY_VOLUME, m_bShowVolume);
-	DDX_Check(pDX, IDC_DISPLAY_IMPORTANTS, m_bShowImportants);
-	//}}AFX_DATA_MAP
+  //{{AFX_DATA_MAP(CDlgBrowseByClass)
+  DDX_Control(pDX, IDC_PLUGGINS, m_ctrlPluggins);
+  DDX_Control(pDX, IDC_ENTITY_LIST, m_listEntities);
+  DDX_Text(pDX, IDC_ENTITIES_IN_VOLUME_T, m_strEntitiesInVolume);
+  DDX_Check(pDX, IDC_DISPLAY_VOLUME, m_bShowVolume);
+  DDX_Check(pDX, IDC_DISPLAY_IMPORTANTS, m_bShowImportants);
+  //}}AFX_DATA_MAP
 
   // if dialog is giving data
   if( pDX->m_bSaveAndValidate != FALSE)
@@ -469,22 +469,22 @@ void CDlgBrowseByClass::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CDlgBrowseByClass, CDialog)
-	//{{AFX_MSG_MAP(CDlgBrowseByClass)
-	ON_NOTIFY(NM_DBLCLK, IDC_ENTITY_LIST, OnDblclkEntityList)
-	ON_NOTIFY(LVN_COLUMNCLICK, IDC_ENTITY_LIST, OnColumnclickEntityList)
-	ON_NOTIFY(NM_RCLICK, IDC_ENTITY_LIST, OnRclickEntityList)
-	ON_NOTIFY(NM_CLICK, IDC_ENTITY_LIST, OnClickEntityList)
-	ON_BN_CLICKED(ID_REMOVE, OnRemove)
-	ON_BN_CLICKED(ID_LEAVE, OnLeave)
-	ON_BN_CLICKED(ID_SELECT_ALL, OnSelectAll)
-	ON_BN_CLICKED(ID_FEED_VOLUME, OnFeedVolume)
-	ON_BN_CLICKED(ID_REVERT, OnRevert)
-	ON_BN_CLICKED(ID_SELECT_SECTORS, OnSelectSectors)
-	ON_BN_CLICKED(ID_DELETE_BROWSE_BY_CLASS, OnDeleteBrowseByClass)
-	ON_BN_CLICKED(IDC_DISPLAY_VOLUME, OnDisplayVolume)
-	ON_CBN_SELENDOK(IDC_PLUGGINS, OnSelendokPluggins)
-	ON_BN_CLICKED(IDC_DISPLAY_IMPORTANTS, OnDisplayImportants)
-	//}}AFX_MSG_MAP
+  //{{AFX_MSG_MAP(CDlgBrowseByClass)
+  ON_NOTIFY(NM_DBLCLK, IDC_ENTITY_LIST, OnDblclkEntityList)
+  ON_NOTIFY(LVN_COLUMNCLICK, IDC_ENTITY_LIST, OnColumnclickEntityList)
+  ON_NOTIFY(NM_RCLICK, IDC_ENTITY_LIST, OnRclickEntityList)
+  ON_NOTIFY(NM_CLICK, IDC_ENTITY_LIST, OnClickEntityList)
+  ON_BN_CLICKED(ID_REMOVE, OnRemove)
+  ON_BN_CLICKED(ID_LEAVE, OnLeave)
+  ON_BN_CLICKED(ID_SELECT_ALL, OnSelectAll)
+  ON_BN_CLICKED(ID_FEED_VOLUME, OnFeedVolume)
+  ON_BN_CLICKED(ID_REVERT, OnRevert)
+  ON_BN_CLICKED(ID_SELECT_SECTORS, OnSelectSectors)
+  ON_BN_CLICKED(ID_DELETE_BROWSE_BY_CLASS, OnDeleteBrowseByClass)
+  ON_BN_CLICKED(IDC_DISPLAY_VOLUME, OnDisplayVolume)
+  ON_CBN_SELENDOK(IDC_PLUGGINS, OnSelendokPluggins)
+  ON_BN_CLICKED(IDC_DISPLAY_IMPORTANTS, OnDisplayImportants)
+  //}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -678,8 +678,8 @@ BOOL CDlgBrowseByClass::OnInitDialog()
 {
   CDialog::OnInitDialog();
 
-  int iScreenX = ::GetSystemMetrics(SM_CXSCREEN);	// screen size
-	int iScreenY = ::GetSystemMetrics(SM_CYSCREEN) - 32;
+  int iScreenX = ::GetSystemMetrics(SM_CXSCREEN);  // screen size
+  int iScreenY = ::GetSystemMetrics(SM_CYSCREEN) - 32;
   
   PIX pixSX = 8;
   PIX pixSY = 16;
@@ -725,7 +725,7 @@ BOOL CDlgBrowseByClass::OnInitDialog()
 
   FillListWithEntities();
   InitializePluggins();
-	return TRUE;
+  return TRUE;
 }
 
 void CDlgBrowseByClass::OnDblclkEntityList(NMHDR* pNMHDR, LRESULT* pResult) 
@@ -756,7 +756,7 @@ void CDlgBrowseByClass::OnOK()
 
 void CDlgBrowseByClass::OnColumnclickEntityList(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	NM_LISTVIEW* pNMListView = (NM_LISTVIEW*)pNMHDR;
+  NM_LISTVIEW* pNMListView = (NM_LISTVIEW*)pNMHDR;
   if( theApp.m_iLastClassSortAplied == pNMListView->iSubItem) theApp.m_bInvertClassSort = !theApp.m_bInvertClassSort;
   else                                                        theApp.m_bInvertClassSort = FALSE;
 
@@ -796,7 +796,7 @@ void CDlgBrowseByClass::OnRclickEntityList(NMHDR* pNMHDR, LRESULT* pResult)
 {
   BOOL bShift = (GetKeyState( VK_SHIFT)&0x8000) != 0;
 
-	*pResult = 0;
+  *pResult = 0;
   
   CRect rcItem;
   POINT ptMouse;
@@ -847,7 +847,7 @@ void CDlgBrowseByClass::OnClickEntityList(NMHDR* pNMHDR, LRESULT* pResult)
     m_listEntities.SetItemState( htInfo.iItem, LVIS_SELECTED, LVIS_SELECTED);
   }
   UpdateData( FALSE);
-	*pResult = 0;
+  *pResult = 0;
 }
 
 void CDlgBrowseByClass::OnRemove() 
@@ -970,7 +970,7 @@ BOOL CDlgBrowseByClass::PreTranslateMessage(MSG* pMsg)
   {
     OnSelectAll();
   }
-	return CDialog::PreTranslateMessage(pMsg);
+  return CDialog::PreTranslateMessage(pMsg);
 }
 
 void CDlgBrowseByClass::OnDeleteBrowseByClass() 
