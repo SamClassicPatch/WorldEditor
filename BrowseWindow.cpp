@@ -1528,8 +1528,10 @@ void CBrowseWindow::OnExportTexture()
 
 void CBrowseWindow::OnBrowserContextHelp() 
 {
+#if SE1_HTMLHELP
   if( _fnRightClickedItemFileName.FileExt()==CTString(".ecl"))
   {
     theApp.DisplayHelp(_fnRightClickedItemFileName, HH_DISPLAY_TOPIC, NULL);
   }
+#endif
 }

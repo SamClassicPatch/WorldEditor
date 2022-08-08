@@ -1246,7 +1246,7 @@ void CMainFrame::OnUpdateViewMipToolsBar(CCmdUI* pCmdUI)
   pCmdUI->SetCheck(bVisible);
 }
 
-void CMainFrame::OnActivateApp(BOOL bActive, DWORD hTask)
+void CMainFrame::OnActivateApp(BOOL bActive, Task_t hTask)
 {
   CMDIFrameWnd::OnActivateApp(bActive, hTask);
 
@@ -1606,6 +1606,7 @@ LRESULT CMainFrame::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 
 void CMainFrame::OnHelpFinder() 
 {
+#if SE1_HTMLHELP
   CWorldEditorDoc *pDoc = theApp.GetDocument();
   // must not be null
   if( pDoc != NULL) 
@@ -1624,6 +1625,7 @@ void CMainFrame::OnHelpFinder()
     }
   }
   theApp.DisplayHelp(CTFILENAME("Help\\SeriousEditorDefault.hlk"), HH_DISPLAY_TOPIC, NULL);
+#endif
 }
 
 void CMainFrame::SetStatusBarMessage( CTString strMessage, INDEX iPane, FLOAT fTime)

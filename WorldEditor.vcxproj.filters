@@ -16,6 +16,12 @@
     <Filter Include="Wizard Files">
       <UniqueIdentifier>{7e7e7b5f-d4a7-4a8e-ab80-568057d12fdf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Cecil headers">
+      <UniqueIdentifier>{2ef2839d-80f8-4d5e-8668-d156d3b93820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cecil">
+      <UniqueIdentifier>{f9e0f7c1-ec78-41ec-a02e-98d3718c18db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ActiveTextureWnd.cpp">
@@ -254,6 +260,9 @@
     </ClCompile>
     <ClCompile Include="WorldEditorView.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cecil\EngineCompatibility.cpp">
+      <Filter>Source Files\Cecil</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -498,6 +507,9 @@
     </ClInclude>
     <ClInclude Include="WorldEditorView.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cecil\EngineCompatibility.h">
+      <Filter>Header Files\Cecil headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

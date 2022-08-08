@@ -22,7 +22,19 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifndef _AFX_NO_AFXCMN_SUPPORT
 #include <afxcmn.h>      // MFC support for Windows Common Controls
 #endif // _AFX_NO_AFXCMN_SUPPORT
-#include <htmlhelp.h>
+
+// [Cecil] Compatibility with older MFC
+#if _MSC_VER > 1200
+  #pragma comment(lib, "htmlhelp.lib")
+  #include <htmlhelp.h>
+
+  #define SE1_HTMLHELP 1
+  typedef DWORD Task_t;
+
+#else
+  #define SE1_HTMLHELP 0
+  typedef HTASK Task_t;
+#endif
 
 #define ENGINE_INTERNAL 1
 #include <EngineGUI/EngineGUI.h>
@@ -34,4 +46,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "WorldEditor.h"
 
-#pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='x86' publicKeyToken='6595b64144ccf1df' language='*'\"")
+// [Cecil] Extra functionality
+#include "Cecil/EngineCompatibility.h"
+
+// [Cecil] Compatibility with older compiler
+#if _MSC_VER > 1200
+  #pragma comment(linker, "/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='x86' publicKeyToken='6595b64144ccf1df' language='*'\"")
+#endif

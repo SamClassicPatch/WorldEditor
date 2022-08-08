@@ -1608,7 +1608,8 @@ void CWorldEditorApp::WriteToIniFileOnEnd(void)
   if( theApp.m_ptdActiveTexture != NULL)
   {
     CTFileName fnTextureForPrimitive( theApp.m_ptdActiveTexture->GetName());
-    fnTextureForPrimitive.SetAbsolutePath();
+    // [Cecil] CTFileName::SetAbsolutePath() doesn't exist before 1.10
+    SetAbsolutePath(fnTextureForPrimitive);
     strcpy( strIni, fnTextureForPrimitive);
     WriteProfileString( _T("World editor prefs"), _T("Default primitive texture"), CString(strIni));
   }
@@ -2856,9 +2857,12 @@ void CWorldEditorApp::WinHelp(DWORD dwData, UINT nCmd)
 {
   // TODO: Add your specialized code here and/or call the base class
 
+#if SE1_HTMLHELP
   if (nCmd == HELP_CONTEXT) {
     DisplayHelp(CTFILENAME("Help\\SeriousEditorContext.hlk"), HH_HELP_CONTEXT, dwData);
-  } else {
+  } else
+#endif
+  {
     CWinApp::WinHelp(dwData, nCmd);
   }
 }
@@ -2913,9 +2917,10 @@ void CWorldEditorApp::DisplayHelp(const CTFileName &fnHlk, UINT uCommand, DWORD 
     }
     else if( strHelpFormatID=="CHM")
     {
+#if SE1_HTMLHELP
       HtmlHelp(dwData);
-      //HtmlHelp(NULL, 
-      //  _fnmApplicationPath+strHelpPath, uCommand, dwData);
+      //HtmlHelp(NULL, _fnmApplicationPath+strHelpPath, uCommand, dwData);
+#endif
       return;
     }
     else
@@ -2923,9 +2928,10 @@ void CWorldEditorApp::DisplayHelp(const CTFileName &fnHlk, UINT uCommand, DWORD 
       WarningMessage("Expected TXT, HTM, HTML, or CHM help format indentifier.");
     }
   }
+#if SE1_HTMLHELP
   HtmlHelp(dwData);
-  //HtmlHelp(NULL, 
-  //  _fnmApplicationPath+"Help\\ToolsHelp.chm::/SeriousEditor/Overview.htm", uCommand, dwData);
+  //HtmlHelp(NULL, _fnmApplicationPath+"Help\\ToolsHelp.chm::/SeriousEditor/Overview.htm", uCommand, dwData);
+#endif
 }
 
 CEntity *GetTerrainEntity(void)

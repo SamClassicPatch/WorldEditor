@@ -12096,10 +12096,12 @@ void CWorldEditorView::OnTriangularizePolygon()
 
 void CWorldEditorView::OnEntityContextHelp() 
 {
+#if SE1_HTMLHELP
   if( m_penEntityHitOnContext != NULL)
   {
     theApp.DisplayHelp(m_penEntityHitOnContext->GetClass()->GetName(), HH_DISPLAY_TOPIC, NULL);
   }
+#endif
 }
 
 void CWorldEditorView::AutoFitMapping(CBrushPolygon *pbpo, BOOL bInvert/*=FALSE*/, BOOL bFitBoth/*=FALSE*/)
