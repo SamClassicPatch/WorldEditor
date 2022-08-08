@@ -16,7 +16,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 // TriangularisationCombo.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdH.h"
 
 #ifdef _DEBUG
 #undef new

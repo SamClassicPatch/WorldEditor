@@ -16,7 +16,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 // DlgLightAnimationEditor.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdH.h"
 #include "WorldEditor.h"
 #include "DlgLightAnimationEditor.h"
 #include <Engine/Templates/Stock_CAnimData.h>

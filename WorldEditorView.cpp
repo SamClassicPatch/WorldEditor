@@ -16,7 +16,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 // WorldEditorView.cpp : implementation of the CWorldEditorView class
 //
 
-#include "stdafx.h"
+#include "StdH.h"
 #include "WorldEditor.h"
 #include <Engine/Base/Profiling.h>
 #include <Engine/Base/Statistics.h>

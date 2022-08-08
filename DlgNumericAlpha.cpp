@@ -16,7 +16,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 // DlgNumericAlpha.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdH.h"
 #include "DlgNumericAlpha.h"
 
 #ifdef _DEBUG

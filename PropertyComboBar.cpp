@@ -16,7 +16,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 // PropertyComboBar.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdH.h"
 #include "PropertyComboBar.h"
 
 #ifdef _DEBUG

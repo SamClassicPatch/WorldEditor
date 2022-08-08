@@ -16,7 +16,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 // DlgRenderingPreferences.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdH.h"
 #include "DlgRenderingPreferences.h"
 
 #ifdef _DEBUG

@@ -13,9 +13,5 @@ You should have received a copy of the GNU General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. */
 
-// stdafx.cpp : source file that includes just the standard includes
-//	WorldEditor.pch will be the pre-compiled header
-//	stdafx.obj will contain the pre-compiled type information
-
-#include "stdafx.h"
+#include "StdH.h"
 

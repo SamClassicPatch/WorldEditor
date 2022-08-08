@@ -16,7 +16,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 // DlgTipOfTheDay.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdH.h"
 #include "WorldEditor.h"
 #include "DlgTipOfTheDay.h"
 #include "CtlTipOfTheDayText.h"

@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 /////////////////////////////////////////////////////////////////////////////
 // Public functions
 
-#include "StdAfx.h"
+#include "StdH.h"
 
 //--------------------------------------------------------------------------------------------
 void AFXAPI DDX_SkyFloat(CDataExchange* pDX, int nIDC, float &fNumber)

@@ -16,7 +16,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 // ColoredButton.cpp : implementation file
 // 
 
-#include "stdafx.h"
+#include "StdH.h"
 #include "ColoredButton.h"
 
 #ifdef _DEBUG

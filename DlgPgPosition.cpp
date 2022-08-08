@@ -16,7 +16,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 // DlgPgPosition.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdH.h"
 #include "DlgPgPosition.h"
 
 #ifdef _DEBUG

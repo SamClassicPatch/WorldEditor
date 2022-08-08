@@ -16,7 +16,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 // CtrlBrowseFile.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdH.h"
 #include "CtrlBrowseFile.h"
 
 #ifdef _DEBUG

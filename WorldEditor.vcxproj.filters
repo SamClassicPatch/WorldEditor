@@ -207,7 +207,7 @@
     <ClCompile Include="SkyFloat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StdAfx.cpp">
+    <ClCompile Include="StdH.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TerrainEditing.cpp">
@@ -451,7 +451,7 @@
     <ClInclude Include="SkyFloat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="StdAfx.h">
+    <ClInclude Include="StdH.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TerrainEditing.h">

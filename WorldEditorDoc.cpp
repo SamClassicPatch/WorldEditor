@@ -16,7 +16,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 // WorldEditorDoc.cpp : implementation of the CWorldEditorDoc class
 //
 
-#include "stdafx.h"
+#include "StdH.h"
 #include "WorldEditor.h"
 #include "WorldEditorDoc.h"
 

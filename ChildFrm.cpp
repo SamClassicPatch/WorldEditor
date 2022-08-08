@@ -16,7 +16,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 // ChildFrm.cpp : implementation of the CChildFrame class
 //
 
-#include "stdafx.h"
+#include "StdH.h"
 #include "ChildFrm.h"
 
 #ifdef _DEBUG

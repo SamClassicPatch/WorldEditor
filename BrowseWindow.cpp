@@ -16,7 +16,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 // BrowseWindow.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdH.h"
 #include "BrowseWindow.h"
 #include <shlobj.h>
 #include <Engine/Templates/Stock_CTextureData.h>

@@ -112,6 +112,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <DisableSpecificWarnings>4996;4333</DisableSpecificWarnings>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PrecompiledHeaderFile>StdH.h</PrecompiledHeaderFile>
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -146,6 +147,7 @@
       <DisableSpecificWarnings>4996;4333</DisableSpecificWarnings>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PrecompiledHeaderFile>StdH.h</PrecompiledHeaderFile>
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -180,6 +182,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <DisableSpecificWarnings>4996;4333</DisableSpecificWarnings>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PrecompiledHeaderFile>StdH.h</PrecompiledHeaderFile>
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -214,6 +217,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <DisableSpecificWarnings>4996;4333</DisableSpecificWarnings>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PrecompiledHeaderFile>StdH.h</PrecompiledHeaderFile>
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -318,7 +322,7 @@
     <ClCompile Include="PropertyComboBar.cpp" />
     <ClCompile Include="PropertyComboBox.cpp" />
     <ClCompile Include="SkyFloat.cpp" />
-    <ClCompile Include="StdAfx.cpp">
+    <ClCompile Include="StdH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_TSE107|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_TSE105|Win32'">Create</PrecompiledHeader>
@@ -490,7 +494,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'">hlp\resources.hm;%(Outputs)</Outputs>
     </CustomBuild>
     <ClInclude Include="SkyFloat.h" />
-    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="StdH.h" />
     <ClInclude Include="TerrainEditing.h" />
     <ClInclude Include="TerrainInterface.h" />
     <ClInclude Include="ToolTipWnd.h" />
