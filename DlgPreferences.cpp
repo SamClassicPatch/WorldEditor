@@ -69,6 +69,15 @@ void CDlgPreferences::DoDataExchange(CDataExchange* pDX)
     GetDlgItem(IDC_STATIC_SOURCE_SAFE_BORDER)->EnableWindow( FALSE);
     GetDlgItem(IDC_STATIC_SOURCE_SAFE_PROJECT)->EnableWindow( FALSE);
     GetDlgItem(IDC_EDIT_SS_PROJECT)->EnableWindow( FALSE);
+
+    // [Cecil] Disable terrain properties
+    #if !SE1_TERRAINS
+      GetDlgItem(IDC_TERRAIN_SELECTION_HIDDEN)->EnableWindow(FALSE);
+      GetDlgItem(IDC_TERRAIN_SELECTON_VISIBLE)->EnableWindow(FALSE);
+      GetDlgItem(IDC_PREFS_AUTO_GENERATE_TD)->EnableWindow(FALSE);
+      GetDlgItem(IDC_MEMORY_FOR_UNDO)->EnableWindow(FALSE);
+    #endif
+
     // select current api
     if( IsWindow(m_ctrGfxApi.m_hWnd))
     {
