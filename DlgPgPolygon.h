@@ -39,7 +39,9 @@ public:
 // Dialog Data
   //{{AFX_DATA(CDlgPgPolygon)
   enum { IDD = IDD_PG_POLYGON };
+#if SE1_DSPOLYGONS
   CCtrlEditBoolean  m_IsDoubleSided;
+#endif
   CCtrlEditBoolean  m_bShootThru;
   CCtrlEditBoolean  m_IsTransparent;
   CCtrlEditBoolean  m_bStairs;

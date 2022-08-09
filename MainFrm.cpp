@@ -1128,6 +1128,8 @@ BOOL CMainFrame::PreTranslateMessage(MSG* pMsg)
       if( (iNum>=0) && (iNum<=9) && !bAlt)
       {
         CWorldEditorDoc *pDoc = theApp.GetDocument();
+
+#if SE1_TERRAINS
         if( pDoc != NULL && pDoc->GetEditingMode()==TERRAIN_MODE)
         {
           FLOAT fCurrentTime = _pTimer->GetRealTimeTick();
@@ -1144,6 +1146,7 @@ BOOL CMainFrame::PreTranslateMessage(MSG* pMsg)
           }
         }
         else
+#endif
         {
           _fLastNumKeyDownTime = -2;
           ApplyTreeShortcut( iNum, bCtrl);
@@ -1162,6 +1165,8 @@ BOOL CMainFrame::PreTranslateMessage(MSG* pMsg)
     if( (iNum>=0) && (iNum<=9) && !bAlt)
     {
       CWorldEditorDoc *pDoc = theApp.GetDocument();
+
+#if SE1_TERRAINS
       if( pDoc != NULL && pDoc->GetEditingMode()==TERRAIN_MODE)
       {
         FLOAT fCurrentTime = _pTimer->GetRealTimeTick();
@@ -1183,6 +1188,7 @@ BOOL CMainFrame::PreTranslateMessage(MSG* pMsg)
           theApp.m_ctTerrainPageCanvas.MarkChanged();
         }
       }
+#endif
     }
     _fLastNumKeyDownTime = -1;
   }

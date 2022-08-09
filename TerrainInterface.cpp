@@ -402,7 +402,7 @@ END_MESSAGE_MAP()
 
 void CTerrainInterface::OnPaint() 
 {
-#if ALLOW_TERRAINS
+#if ALLOW_TERRAINS && SE1_TERRAINS
   {
   CPaintDC dc(this);
   }
@@ -445,7 +445,7 @@ void CTerrainInterface::OnPaint()
 
 void CTerrainInterface::RenderInterface(CDrawPort *pdp) 
 {
-#if ALLOW_TERRAINS
+#if ALLOW_TERRAINS && SE1_TERRAINS
   // render terrain interface buttons
   FOREACHINDYNAMICCONTAINER( dcButtons, CTIButton, ittib)
   {
@@ -525,7 +525,7 @@ void CTerrainInterface::OnDestroy()
 
 void GenerateTerrainBrushTexture( INDEX iBrush, FLOAT fHotSpot, FLOAT fFallOff)
 {
-#if ALLOW_TERRAINS
+#if ALLOW_TERRAINS && SE1_TERRAINS
   INDEX iLog2=INDEX(ceil(Log2(fFallOff*2+2)));
   PIX pixSize=1UL<<(iLog2+1);
   FLOAT fcx=pixSize/2.0f;

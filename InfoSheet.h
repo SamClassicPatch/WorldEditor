@@ -54,7 +54,11 @@ public:
 public:
   ModeID m_ModeID;
   CDlgPgGlobal m_PgGlobal;
+
+#if SE1_TERRAINS
   CDlgPgTerrain m_PgTerrain;
+#endif
+
   CDlgPgPosition m_PgPosition;
   CDlgPgPrimitive m_PgPrimitive;
   CDlgPgRenderingStatistics m_PgRenderingStatistics;

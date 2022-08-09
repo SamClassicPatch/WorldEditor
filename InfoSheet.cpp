@@ -28,11 +28,17 @@ static char THIS_FILE[] = __FILE__;
 
 /////////////////////////////////////////////////////////////////////////////
 // CInfoSheet
+
+#if SE1_TERRAINS
+  #define CALLACTIVEPAGE_TERRAIN(function, parameter) if (pgActivPage == &m_PgTerrain) m_PgTerrain.function(parameter);
+#else
+  #define CALLACTIVEPAGE_TERRAIN(function, parameter)
+#endif
+
 #define CALLACTIVEPAGE(function, parameter)         \
   if( pgActivPage == &m_PgGlobal)                   \
     m_PgGlobal.function( parameter);                \
-  if( pgActivPage == &m_PgTerrain)                  \
-    m_PgTerrain.function( parameter);               \
+  CALLACTIVEPAGE_TERRAIN(function, parameter);      \
   if( pgActivPage == &m_PgPosition)                 \
     m_PgPosition.function( parameter);              \
   if( pgActivPage == &m_PgRenderingStatistics)      \
@@ -56,7 +62,9 @@ CInfoSheet::CInfoSheet(CWnd* pWndParent)
 {
   // Add all pages so frame could get bounding sizes of all of them
   AddPage( &m_PgGlobal);
+#if SE1_TERRAINS
   AddPage( &m_PgTerrain);
+#endif
   AddPage( &m_PgPosition);
   AddPage( &m_PgPrimitive);
   //AddPage( &m_PgRenderingStatistics);
@@ -166,6 +174,8 @@ void CInfoSheet::SetInfoModeSector(void)
   SoftSetActivePage(1);
 }
 
+#if SE1_TERRAINS
+
 void CInfoSheet::SetInfoModeTerrain(void)
 {
   m_ModeID = INFO_MODE_TERRAIN;
@@ -174,6 +184,8 @@ void CInfoSheet::SetInfoModeTerrain(void)
   AddPage( &m_PgTerrain);
   SoftSetActivePage(1);
 }
+
+#endif
 
 BOOL CInfoSheet::OnIdle(LONG lCount)
 {
@@ -249,6 +261,7 @@ BOOL CInfoSheet::OnIdle(LONG lCount)
         SetInfoModeSector();
       }
     }
+#if SE1_TERRAINS
     // else if we are in terrain mode
     else if( pDoc->m_iMode == TERRAIN_MODE)
     {
@@ -257,6 +270,7 @@ BOOL CInfoSheet::OnIdle(LONG lCount)
         SetInfoModeTerrain();
       }      
     }
+#endif
     // we are not in CSG mode nor in single entity mode, force info mode: INFO_MODE_GLOBAL
     else
     {

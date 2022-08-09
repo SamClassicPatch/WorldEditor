@@ -1157,6 +1157,8 @@ void CBrowseWindow::OnLButtonDblClk(UINT nFlags, CPoint point)
   if( fnItem.FileExt() == ".tex")
   {
     CWorldEditorDoc *pDoc = theApp.GetDocument();
+
+#if SE1_TERRAINS
     if(pDoc!=NULL && pDoc->GetEditingMode()==TERRAIN_MODE)
     {
       CTerrainLayer *ptlLayer=GetLayer();
@@ -1176,6 +1178,7 @@ void CBrowseWindow::OnLButtonDblClk(UINT nFlags, CPoint point)
       }
     }
     else
+#endif
     {
       // set it as new primitive's material default texture
       theApp.SetNewActiveTexture( _fnmApplicationPath + fnItem);

@@ -36,13 +36,24 @@ with this program; if not, write to the Free Software Foundation, Inc.,
   typedef HTASK Task_t;
 #endif
 
+// [Cecil] Newer engine features
+#define SE1_NEWFEATURES (SE1_VER >= 107) // 1.07 or newer
+
+#define SE1_TERRAINS      SE1_NEWFEATURES // Terrain system
+#define SE1_DSPOLYGONS    SE1_NEWFEATURES // Double-sided brush polygons flag
+#define SE1_WRP_FARCLIP   SE1_NEWFEATURES // Far clip adjustment settings for CWorldRenderPrefs
+#define SE1_RAYHITBRUSHES SE1_NEWFEATURES // cr_bHitBrushes setting for CCastRay
+
 #define ENGINE_INTERNAL 1
 #include <EngineGUI/EngineGUI.h>
 #include <Engine/GameShell.h>
 #include <Engine/Base/ChangeableRT.h>
 #include <Engine/Base/UpdateableRT.h>
-#include <Engine/Terrain/Terrain.h>
-#include <Engine/Terrain/TerrainMisc.h>
+
+#if SE1_TERRAINS
+  #include <Engine/Terrain/Terrain.h>
+  #include <Engine/Terrain/TerrainMisc.h>
+#endif
 
 #include "WorldEditor.h"
 

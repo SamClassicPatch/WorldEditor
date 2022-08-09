@@ -1000,6 +1000,7 @@ void CDlgBrowseByClass::OnDeleteBrowseByClass()
     m_listEntities.DeleteItem( iSelectedItem);
   }
 
+#if SE1_TERRAINS
   // check for deleting terrain
   {FOREACHINDYNAMICCONTAINER(pDoc->m_selEntitySelection, CEntity, iten)
   {
@@ -1016,6 +1017,7 @@ void CDlgBrowseByClass::OnDeleteBrowseByClass()
       }
     }
   }}
+#endif
 
   {FOREACHINDYNAMICCONTAINER(dcEntitiesToDelete, CEntity, itenToDelete)
   {

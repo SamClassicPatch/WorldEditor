@@ -29,7 +29,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #define SECTOR_MODE 2
 #define ENTITY_MODE 3
 #define VERTEX_MODE 4
-#define TERRAIN_MODE 5
+
+#if SE1_TERRAINS
+  #define TERRAIN_MODE 5
+#endif
+
 #define CSG_MODE 6
 
 enum ESelectionType
@@ -79,13 +83,19 @@ protected: // create from serialization only
 
 // Attributes
 public:
+#if SE1_TERRAINS
   CDynamicContainer<CTerrainUndo> m_dcTerrainUndo;
   INDEX m_iCurrentTerrainUndo;
+#endif
   BOOL m_bAskedToCheckOut;
   SLONG m_slDisplaceTexTime;
   INDEX m_iMirror;
   INDEX m_iTexture;
+
+#if SE1_TERRAINS
   CTerrain *m_ptrSelectedTerrain;
+#endif
+
   CTextureObject m_toBackdropUp;
   CTextureObject m_toBackdropFt;
   CTextureObject m_toBackdropRt;

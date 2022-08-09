@@ -44,6 +44,8 @@ class CWorldEditorDoc;
 class CWorldEditorView;
 class CVirtualTreeNode;
 
+#if SE1_TERRAINS
+
 extern CEntity *GetTerrainEntity(void);
 extern CTerrain *GetTerrain(void);
 extern CTerrainLayer *GetLayer(void);
@@ -51,6 +53,9 @@ extern void SelectLayer(INDEX iLayer);
 extern INDEX GetLayerIndex(void);
 extern CTerrainLayer *GetLayer(INDEX iLayer);
 
+#endif
+
+// [Cecil] NOTE: This can be used to disable terrain editing in 1.07+ engine versions
 #define ALLOW_TERRAINS 1
 
 /////////////////////////////////////////////////////////////////////////////
@@ -233,11 +238,13 @@ public:
   CTString ap_strSourceSafeProject;
   FLOAT ap_fDefaultFlyModeSpeed;
 
+#if SE1_TERRAINS
   INDEX ap_iTerrainSelectionVisible;
   INDEX ap_iTerrainSelectionHidden;
 
   INDEX ap_iMemoryForTerrainUndo;
   BOOL ap_bAutoUpdateTerrainDistribution;
+#endif
 
   void ReadFromIniFile();
   void WriteToIniFile();
@@ -324,6 +331,7 @@ private:
   CWorldEditorDoc *m_pLastActivatedDocument;
 public:
 // Atributes
+#if SE1_TERRAINS
   FLOAT3D m_vLastTerrainHit;
   CEntity *m_penLastTerrainHit;
   FLOAT m_fCurrentTerrainBrush;
@@ -351,6 +359,7 @@ public:
   FLOAT m_fNoiseAltitude;
   INDEX m_iRNDSubdivideAndDisplaceItterations;
   INDEX m_iTerrainGenerationMethod;
+#endif
 
   INDEX m_iApi;
   CCustomToolTip m_cttToolTips;
@@ -493,8 +502,10 @@ public:
   // obtain currently active view
   CWorldEditorView *GetActiveView(void);
 
+#if SE1_TERRAINS
   CChangeableRT m_ctTerrainPage;
   CChangeableRT m_ctTerrainPageCanvas;
+#endif
 
 // Operations
   CWorldEditorApp();
@@ -540,7 +551,10 @@ public:
   // gets name for given virtual tree node
   CTString GetNameForVirtualTreeNode( CVirtualTreeNode *pvtnNode);
   void DisplayHelp(const CTFileName &fnHlk, UINT uCommand, DWORD dwData);
+
+#if SE1_TERRAINS
   void ApplyTerrainEditing(CCastRay &crRayHit);
+#endif
   
 // Overrides
   // ClassWizard generated virtual function overrides
@@ -686,9 +700,13 @@ extern CWorldEditorApp theApp;
 #include "ActiveTextureWnd.h"
 #include "BrushPaletteWnd.h"
 #include "CustomComboWnd.h"
-#include "TerrainInterface.h"
-#include "TerrainEditing.h"
-#include "WndTerrainTilePalette.h"
+
+#if SE1_TERRAINS
+  #include "TerrainInterface.h"
+  #include "TerrainEditing.h"
+  #include "WndTerrainTilePalette.h"
+#endif
+
 #include "ViewTexture.h"
 #include "ColorPaletteWnd.h"
 #include "ToolTipWnd.h"
@@ -705,7 +723,11 @@ extern CWorldEditorApp theApp;
 #include "DlgSelectByName.h"
 #include "DlgRenderingPreferences.h"
 #include "DlgPgGlobal.h"
-#include "DlgPgTerrain.h"
+
+#if SE1_TERRAINS
+  #include "DlgPgTerrain.h"
+#endif
+
 #include "DlgPgPosition.h"
 #include "DlgPgPrimitive.h"
 #include "DlgPgPolygon.h"
@@ -722,10 +744,14 @@ extern CWorldEditorApp theApp;
 #include "DlgMirrorAndStretch.h"
 #include "DlgComment.h"
 #include "DlgAutTexturize.h"
-#include "DlgEditTerrainBrush.h"
-#include "DlgEditTerrainLayer.h"
-#include "DlgTEOperationSettings.h"
-#include "DlgTerrainProperties.h"
+
+#if SE1_TERRAINS
+  #include "DlgEditTerrainBrush.h"
+  #include "DlgEditTerrainLayer.h"
+  #include "DlgTEOperationSettings.h"
+  #include "DlgTerrainProperties.h"
+#endif
+
 #include "DlgGenerateFBM.h"
 #include "InfoSheet.h"
 #include "VirtualTreeCtrl.h"

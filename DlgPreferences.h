@@ -34,8 +34,12 @@ public:
 // Dialog Data
   //{{AFX_DATA(CDlgPreferences)
   enum { IDD = IDD_PREFERENCES };
+
+#if SE1_TERRAINS
   CComboBox  m_ctrlTerrainSelectionHidden;
   CComboBox  m_ctrlTerrainSelectionVisible;
+#endif
+
   CComboBox  m_ctrGfxApi;
   CSliderCtrl  m_ctrlCSGPrecission;
   CSliderCtrl  m_UndoLevels;
@@ -55,8 +59,11 @@ public:
   BOOL  m_bAutoUpdateDisplaceMap;
   float  m_fFlyModeSpeed;
   BOOL  m_bHideShadowsOnStart;
+
+#if SE1_TERRAINS
   BOOL  m_bAutoUpdateTerrainDistribution;
   int    m_iMemoryForTerrainUndo;
+#endif
   //}}AFX_DATA
 
 

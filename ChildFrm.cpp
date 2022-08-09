@@ -1032,11 +1032,13 @@ void CChildFrame::OnRestorePosition04()
 
 void CChildFrame::OnKeyCtrlG() 
 {
+#if SE1_TERRAINS
   if( theApp.GetDocument()->GetEditingMode() == TERRAIN_MODE)
   {
     GenerateLayerDistribution(-1);
   }
   else
+#endif
   {
     OnToggleEntityNames();
   }
@@ -1044,11 +1046,13 @@ void CChildFrame::OnKeyCtrlG()
 
 void CChildFrame::OnUpdateKeyCtrlG(CCmdUI* pCmdUI) 
 {
+#if SE1_TERRAINS
   if( theApp.GetDocument()->GetEditingMode() == TERRAIN_MODE)
   {
     pCmdUI->SetCheck(TRUE);
   }
   else
+#endif
   {
     OnUpdateToggleEntityNames(pCmdUI);
   }
@@ -1084,6 +1088,7 @@ void CChildFrame::OnUpdateEnableVisibilityTweaks(CCmdUI* pCmdUI)
 
 void CChildFrame::OnKeyB() 
 {
+#if SE1_TERRAINS
   if( theApp.GetDocument()->GetEditingMode() == TERRAIN_MODE)
   {
     INDEX iNewMode=(INDEX(theApp.m_iTerrainBrushMode)+1)%CT_BRUSH_MODES;
@@ -1092,6 +1097,7 @@ void CChildFrame::OnKeyB()
     theApp.GetDocument()->SetStatusLineModeInfoMessage();
   }
   else
+#endif
   {
     OnAutoMipLeveling();
   }
@@ -1099,11 +1105,13 @@ void CChildFrame::OnKeyB()
 
 void CChildFrame::OnUpdateKeyB(CCmdUI* pCmdUI) 
 {
+#if SE1_TERRAINS
   if( theApp.GetDocument()->GetEditingMode() == TERRAIN_MODE)
   {
     pCmdUI->SetCheck(TRUE);
   }
   else
+#endif
   {
     OnUpdateAutoMipLeveling(pCmdUI);
   }
@@ -1112,6 +1120,8 @@ void CChildFrame::OnUpdateKeyB(CCmdUI* pCmdUI)
 void CChildFrame::OnKeyY() 
 {
   CWorldEditorDoc* pDoc = theApp.GetActiveDocument();
+
+#if SE1_TERRAINS
   if( pDoc->GetEditingMode() == TERRAIN_MODE)
   {
     theApp.m_iTerrainBrushMode=TBM_CONTINOUS_NOISE;
@@ -1120,6 +1130,7 @@ void CChildFrame::OnKeyY()
     return;
   }
   else
+#endif
   {
     OnViewFromEntity();
   }
@@ -1128,11 +1139,14 @@ void CChildFrame::OnKeyY()
 void CChildFrame::OnUpdateKeyY(CCmdUI* pCmdUI) 
 {
   CWorldEditorDoc* pDoc = theApp.GetActiveDocument();
+
+#if SE1_TERRAINS
   if( pDoc->GetEditingMode() == TERRAIN_MODE)
   {
     pCmdUI->SetCheck(TRUE);
   }
   else
+#endif
   {
     OnUpdateViewFromEntity(pCmdUI);
   }

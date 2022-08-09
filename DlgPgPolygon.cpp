@@ -71,7 +71,9 @@ void CDlgPgPolygon::DoDataExchange(CDataExchange* pDX)
     m_bStairs.EnableWindow( bSelectionExists);
     m_bShootThru.EnableWindow( bSelectionExists);
     m_IsInvisible.EnableWindow( bSelectionExists);
+#if SE1_DSPOLYGONS
     m_IsDoubleSided.EnableWindow( bSelectionExists);
+#endif
     m_bIsDetail.EnableWindow( bSelectionExists);    
     m_IsTranslucent.EnableWindow( bSelectionExists);
     m_IsTransparent.EnableWindow( bSelectionExists);
@@ -131,7 +133,9 @@ void CDlgPgPolygon::DoDataExchange(CDataExchange* pDX)
       SET_TRI_STATE_TO_CTRL( m_bStairs,       BPOF_STAIRS);
       SET_TRI_STATE_TO_CTRL( m_bShootThru,    BPOF_SHOOTTHRU);
       SET_TRI_STATE_TO_CTRL( m_IsInvisible,   BPOF_INVISIBLE);
+#if SE1_DSPOLYGONS
       SET_TRI_STATE_TO_CTRL( m_IsDoubleSided, BPOF_DOUBLESIDED);
+#endif
       SET_TRI_STATE_TO_CTRL( m_bIsDetail,     BPOF_DETAILPOLYGON);      
       SET_TRI_STATE_TO_CTRL( m_IsTranslucent, BPOF_TRANSLUCENT);
       SET_TRI_STATE_TO_CTRL( m_IsTransparent, BPOF_TRANSPARENT);
@@ -147,7 +151,9 @@ void CDlgPgPolygon::DoDataExchange(CDataExchange* pDX)
   }
 
   //{{AFX_DATA_MAP(CDlgPgPolygon)
+#if SE1_DSPOLYGONS
   DDX_Control(pDX, IDC_DOUBLESIDED, m_IsDoubleSided);
+#endif
   DDX_Control(pDX, IDC_SHOOTTROUGH, m_bShootThru);
   DDX_Control(pDX, IDC_IS_TRANSPARENT, m_IsTransparent);
   DDX_Control(pDX, IDC_STAIRS, m_bStairs);
@@ -210,7 +216,9 @@ void CDlgPgPolygon::DoDataExchange(CDataExchange* pDX)
       TRI_STATE_CTRL_TO_FLAGS( m_bStairs, BPOF_STAIRS, FALSE, FALSE);
       TRI_STATE_CTRL_TO_FLAGS( m_bShootThru, BPOF_SHOOTTHRU, FALSE, FALSE);
       TRI_STATE_CTRL_TO_FLAGS( m_IsInvisible, BPOF_INVISIBLE, FALSE, FALSE);
+#if SE1_DSPOLYGONS
       TRI_STATE_CTRL_TO_FLAGS( m_IsDoubleSided, BPOF_DOUBLESIDED, FALSE, FALSE);
+#endif
       TRI_STATE_CTRL_TO_FLAGS( m_bIsDetail, BPOF_DETAILPOLYGON, FALSE, FALSE);      
       TRI_STATE_CTRL_TO_FLAGS( m_IsTranslucent, BPOF_TRANSLUCENT, FALSE, FALSE);
       TRI_STATE_CTRL_TO_FLAGS( m_IsTransparent, BPOF_TRANSPARENT, FALSE, FALSE);
@@ -219,7 +227,9 @@ void CDlgPgPolygon::DoDataExchange(CDataExchange* pDX)
       // occluder and detail flags can't be on at the same time    
       BOOL bOccluderSet = ((ulFlagsBefore&BPOF_OCCLUDER)!=(ulFlagsAfter&BPOF_OCCLUDER))&&(ulFlagsAfter&BPOF_OCCLUDER);
       BOOL bDetailSet = ((ulFlagsBefore&BPOF_DETAILPOLYGON)!=(ulFlagsAfter&BPOF_DETAILPOLYGON))&&(ulFlagsAfter&BPOF_DETAILPOLYGON);
+#if SE1_DSPOLYGONS
       BOOL bDoubleSidedSet = ((ulFlagsBefore&BPOF_DOUBLESIDED)!=(ulFlagsAfter&BPOF_DOUBLESIDED))&&(ulFlagsAfter&BPOF_DOUBLESIDED);
+#endif
     
       // if occluder set
       if( bOccluderSet)
@@ -228,6 +238,7 @@ void CDlgPgPolygon::DoDataExchange(CDataExchange* pDX)
         itbpo->bpo_ulFlags &= ~BPOF_DETAILPOLYGON;
         itbpo->bpo_ulFlags |= BPOF_DOESNOTCASTSHADOW;
       }
+#if SE1_DSPOLYGONS
       // if doublesided set
       if(bDoubleSidedSet)
       {
@@ -235,6 +246,7 @@ void CDlgPgPolygon::DoDataExchange(CDataExchange* pDX)
         itbpo->bpo_ulFlags |= BPOF_TRANSPARENT;
         itbpo->bpo_ulFlags |= BPOF_DETAILPOLYGON;
       }
+#endif
       // if detail set
       if( bDetailSet)
       {
@@ -363,7 +375,9 @@ BOOL CDlgPgPolygon::OnInitDialog()
   }
   m_bIsDetail.SetDialogPtr( this);
   m_IsInvisible.SetDialogPtr( this);
+#if SE1_DSPOLYGONS
   m_IsDoubleSided.SetDialogPtr( this);
+#endif
   m_IsTranslucent.SetDialogPtr( this);
   m_IsTransparent.SetDialogPtr( this);
   m_IsPassable.SetDialogPtr( this);

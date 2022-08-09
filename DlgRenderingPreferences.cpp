@@ -48,8 +48,10 @@ CDlgRenderingPreferences::CDlgRenderingPreferences( INDEX iBuffer, CWnd* pParent
   m_bRenderHaze = FALSE;
   m_bRenderMirrors = FALSE;
   m_strBcgTexture = _T("");
+#if SE1_WRP_FARCLIP
   m_fFarClipPlane = 0.0f;
   m_bApplyFarClipInIsometricProjection = FALSE;
+#endif
   //}}AFX_DATA_INIT
   m_VertexColors.SetPickerType( CColoredButton::PT_MFC);
   m_EdgesColors.SetPickerType( CColoredButton::PT_MFC);
@@ -80,8 +82,10 @@ void CDlgRenderingPreferences::DoDataExchange(CDataExchange* pDX)
     m_PaperColor.SetColor( theApp.m_vpViewPrefs[ m_iBuffer].m_PaperColor);
     m_SelectionColor.SetColor( theApp.m_vpViewPrefs[ m_iBuffer].m_SelectionColor);
     m_GridColor.SetColor( theApp.m_vpViewPrefs[ m_iBuffer].m_GridColor);
+#if SE1_WRP_FARCLIP
     m_fFarClipPlane=pwrpPrefs.wrp_fFarClipPlane;
     m_bApplyFarClipInIsometricProjection=pwrpPrefs.wrp_bApplyFarClipPlaneInIsometricProjection;
+#endif
     
     m_strBcgTexture = CTFileName(CTString( theApp.m_vpViewPrefs[ m_iBuffer].m_achrBcgPicture)).FileName();
 
@@ -194,9 +198,11 @@ void CDlgRenderingPreferences::DoDataExchange(CDataExchange* pDX)
   DDX_Check(pDX, IDC_RENDER_HAZE, m_bRenderHaze);
   DDX_Check(pDX, IDC_RENDER_MIRRORS, m_bRenderMirrors);
   DDX_Text(pDX, IDC_BCG_PICTURE_T, m_strBcgTexture);
+#if SE1_WRP_FARCLIP
   DDX_Text(pDX, IDC_FAR_CLIP_PLANE, m_fFarClipPlane);
   DDV_MinMaxFloat(pDX, m_fFarClipPlane, -1.f, 1.e+007f);
   DDX_Check(pDX, IDC_APPLY_CLIP_FOR_ISOMETRIC, m_bApplyFarClipInIsometricProjection);
+#endif
   //}}AFX_DATA_MAP
 
   // if dialog is giving data
@@ -229,8 +235,10 @@ void CDlgRenderingPreferences::DoDataExchange(CDataExchange* pDX)
     theApp.m_vpViewPrefs[ m_iBuffer].m_PaperColor = m_PaperColor.GetColor();
     theApp.m_vpViewPrefs[ m_iBuffer].m_GridColor = m_GridColor.GetColor();
     theApp.m_vpViewPrefs[ m_iBuffer].m_SelectionColor = m_SelectionColor.GetColor();
+#if SE1_WRP_FARCLIP
     pwrpPrefs.wrp_fFarClipPlane=m_fFarClipPlane;
     pwrpPrefs.wrp_bApplyFarClipPlaneInIsometricProjection=m_bApplyFarClipInIsometricProjection;
+#endif
     enum CWorldRenderPrefs::FillType ftFillType;
     // get current fill type from vertices combo box
     ftFillType = (enum CWorldRenderPrefs::FillType) m_VertexFillType.GetCurSel();

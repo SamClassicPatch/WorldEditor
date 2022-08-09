@@ -132,8 +132,10 @@ END_MESSAGE_MAP()
 
 CWorldEditorDoc::CWorldEditorDoc()
 {
+#if SE1_TERRAINS
   m_iCurrentTerrainUndo=-1;
   m_ptrSelectedTerrain=NULL;
+#endif
   m_slDisplaceTexTime=0;
   m_bAskedToCheckOut = FALSE;
   m_pCutLineView = NULL;
@@ -182,27 +184,44 @@ CWorldEditorDoc::CWorldEditorDoc()
 
   // set default editing mode - polygon mode
   INDEX iMode=AfxGetApp()->GetProfileInt( _T("World editor"), _T("Last editing mode"), POLYGON_MODE);
-  if(iMode==POLYGON_MODE || iMode==VERTEX_MODE  || iMode==SECTOR_MODE || iMode==ENTITY_MODE || iMode==TERRAIN_MODE)
-  {
-    SetEditingMode( iMode);
-  }
-  else
-  {
-    SetEditingMode( POLYGON_MODE);
+
+  // [Cecil] Replaced multiple checks with switch-case
+  switch (iMode) {
+    case POLYGON_MODE:
+    case VERTEX_MODE:
+    case SECTOR_MODE:
+    case ENTITY_MODE:
+#if SE1_TERRAINS
+    case TERRAIN_MODE:
+#endif
+      SetEditingMode(iMode);
+      break;
+
+    default:
+      SetEditingMode(POLYGON_MODE);
   }
 }
 
 CWorldEditorDoc::~CWorldEditorDoc()
 {
+#if SE1_TERRAINS
   DeleteTerrainUndo(this);
+#endif
 
-  if(m_iMode==POLYGON_MODE || m_iMode==VERTEX_MODE  || m_iMode==SECTOR_MODE || m_iMode==ENTITY_MODE || m_iMode==TERRAIN_MODE)
-  {
-    theApp.WriteProfileInt(_T("World editor"), _T("Last editing mode"), m_iMode);
-  }
-  else
-  {
-    theApp.WriteProfileInt(_T("World editor"), _T("Last editing mode"), POLYGON_MODE);
+  // [Cecil] Replaced multiple checks with switch-case
+  switch (m_iMode) {
+    case POLYGON_MODE:
+    case VERTEX_MODE:
+    case SECTOR_MODE:
+    case ENTITY_MODE:
+#if SE1_TERRAINS
+    case TERRAIN_MODE:
+#endif
+      theApp.WriteProfileInt(_T("World editor"), _T("Last editing mode"), m_iMode);
+      break;
+
+    default:
+      theApp.WriteProfileInt(_T("World editor"), _T("Last editing mode"), POLYGON_MODE);
   }
 
   if( m_pwoSecondLayer != NULL)
@@ -284,6 +303,7 @@ void CWorldEditorDoc::SetStatusLineModeInfoMessage( void)
       hIcon = theApp.LoadIcon( IDR_ICON_PANE_VERTEX);
       break;
     };
+#if SE1_TERRAINS
   case TERRAIN_MODE:
     {
       if(bCtrl&&bAlt)
@@ -318,6 +338,7 @@ void CWorldEditorDoc::SetStatusLineModeInfoMessage( void)
       hIcon = theApp.LoadIcon( IDR_ICON_PANE_TERRAIN);
       break;
     };
+#endif
   default: { FatalError("Unknown editing mode."); break;};
   }
   pMainFrame->m_wndStatusBar.GetStatusBarCtrl().SetIcon( EDITING_MODE_ICON_PANE, hIcon);
@@ -329,7 +350,7 @@ void CWorldEditorDoc::SetStatusLineModeInfoMessage( void)
  */
 void CWorldEditorDoc::SetEditingMode( INDEX iNewMode)
 {
-#if !ALLOW_TERRAINS
+#if !ALLOW_TERRAINS && SE1_TERRAINS
   if(iNewMode==TERRAIN_MODE)
   {
     return;
@@ -1105,10 +1126,12 @@ void CWorldEditorDoc::OnIdle(void)
     pWedView->OnIdle();
   }
 
+#if SE1_TERRAINS
   if( GetEditingMode()==TERRAIN_MODE)
   {
     UpdateAllViews( NULL);
   }
+#endif
 }
 
 // does "snap to grid" for given coordinate
@@ -2757,6 +2780,7 @@ void CWorldEditorDoc::Redo(void)
 
 void CWorldEditorDoc::OnEditUndo() 
 {
+#if SE1_TERRAINS
   if( GetEditingMode()==TERRAIN_MODE)
   {
     if( m_iCurrentTerrainUndo>=0)
@@ -2765,6 +2789,7 @@ void CWorldEditorDoc::OnEditUndo()
     }
   }
   else
+#endif
   {
     Undo();
   }
@@ -2775,11 +2800,13 @@ void CWorldEditorDoc::OnEditUndo()
 
 void CWorldEditorDoc::OnUpdateEditUndo(CCmdUI* pCmdUI) 
 {
+#if SE1_TERRAINS
   if( GetEditingMode()==TERRAIN_MODE)
   {
     pCmdUI->Enable( m_iCurrentTerrainUndo>=0);
   }
   else
+#endif
   {
     pCmdUI->Enable( !m_lhUndo.IsEmpty());
   }
@@ -2787,6 +2814,7 @@ void CWorldEditorDoc::OnUpdateEditUndo(CCmdUI* pCmdUI)
 
 void CWorldEditorDoc::OnEditRedo() 
 {
+#if SE1_TERRAINS
   if( GetEditingMode()==TERRAIN_MODE)
   {
     INDEX ctRedos=m_dcTerrainUndo.Count()-1-m_iCurrentTerrainUndo;
@@ -2796,6 +2824,7 @@ void CWorldEditorDoc::OnEditRedo()
     }
   }
   else
+#endif
   {
     Redo();
   }
@@ -2806,12 +2835,14 @@ void CWorldEditorDoc::OnEditRedo()
 
 void CWorldEditorDoc::OnUpdateEditRedo(CCmdUI* pCmdUI) 
 {
+#if SE1_TERRAINS
   if( GetEditingMode()==TERRAIN_MODE)
   {
     INDEX ctRedos=m_dcTerrainUndo.Count()-1-m_iCurrentTerrainUndo;
     pCmdUI->Enable( ctRedos>0);
   }
   else
+#endif
   {
     pCmdUI->Enable( !m_lhRedo.IsEmpty());
   }
@@ -2886,12 +2917,14 @@ void CWorldEditorDoc::DeselectAll(void)
       { 
         break;
       };
+#if SE1_TERRAINS
     case TERRAIN_MODE:
       {
         m_ptrSelectedTerrain=NULL;
         theApp.m_ctTerrainPage.MarkChanged();
       break;
       };
+#endif
     default:
       { 
         FatalError("Unknown editing mode.");
@@ -3211,11 +3244,13 @@ void CWorldEditorDoc::OnCalculateShadows()
   _pfWorldEditingProfile.Reset();
   m_woWorld.CalculateDirectionalShadows();
 
+#if SE1_TERRAINS
   if( GetEditingMode()==TERRAIN_MODE)
   {
     CTerrain *ptTerrain=GetTerrain();
     if(ptTerrain!=NULL) ptTerrain->UpdateShadowMap();
   }
+#endif
 
   // create shadows report
   _pfWorldEditingProfile.Report( theApp.m_strCSGAndShadowStatistics);
@@ -3250,12 +3285,14 @@ void CWorldEditorDoc::OnHideUnselected()
   {
     OnHideUnselectedSectors();
   }
+#if SE1_TERRAINS
   if( m_iMode == TERRAIN_MODE)
   {
     theApp.m_iTerrainBrushMode=TBM_MAXIMUM;
     theApp.m_ctTerrainPageCanvas.MarkChanged();
     SetStatusLineModeInfoMessage();
   }
+#endif
 }
 
 void CWorldEditorDoc::OnShowAll() 
@@ -3669,6 +3706,7 @@ void CWorldEditorDoc::OnUpdateTexture3(CCmdUI* pCmdUI)
 
 void CWorldEditorDoc::SetActiveTextureLayer(INDEX iLayer)
 {
+#if SE1_TERRAINS
   if( GetEditingMode()==TERRAIN_MODE)
   {
     CTerrain *ptTerrain=GetTerrain();
@@ -3678,7 +3716,9 @@ void CWorldEditorDoc::SetActiveTextureLayer(INDEX iLayer)
     m_chSelections.MarkChanged();
     theApp.m_ctTerrainPageCanvas.MarkChanged();
   }
-  else if(iLayer<3)
+  else
+#endif
+  if (iLayer<3)
   {
     m_iTexture = iLayer;
     m_chSelections.MarkChanged();

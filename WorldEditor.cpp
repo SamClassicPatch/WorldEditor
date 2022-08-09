@@ -258,6 +258,7 @@ CWorldEditorApp::CWorldEditorApp()
   m_ptdIconsTray = NULL;
   m_ptdActiveTexture = NULL;
   
+#if SE1_TERRAINS
   m_vLastTerrainHit=FLOAT3D(0,0,0);
   m_penLastTerrainHit=NULL;
   m_fCurrentTerrainBrush=4.0f;
@@ -285,6 +286,7 @@ CWorldEditorApp::CWorldEditorApp()
   m_fNoiseAltitude=1.0f;
   m_iRNDSubdivideAndDisplaceItterations=2;
   m_iTerrainGenerationMethod=0;
+#endif
   
   m_pbpoClipboardPolygon = new CBrushPolygon;
   m_pbpoPolygonWithDeafultValues = new CBrushPolygon;
@@ -834,8 +836,10 @@ BOOL CWorldEditorApp::SubInitInstance()
                              &pBrowseWindow->m_pDrawPort);
   pMainFrame->m_Browser.OpenSelectedDirectory();
 
+#if SE1_TERRAINS
   // assure that terrain brushes exist
   GenerateNonExistingTerrainEditBrushes();
+#endif
 
   // Dispatch commands specified on the command line
   if (!ProcessShellCommand(cmdInfo))
@@ -952,8 +956,6 @@ BOOL CWorldEditorApp::SaveAllModified()
 
 void CWorldEditorApp::ReadFromIniFileOnInit(void)
 {
-  char strIni[ 256];
-
   // read data that can be saved multiple times to ini file
   ReadFromIniFile();
 
@@ -964,6 +966,9 @@ void CWorldEditorApp::ReadFromIniFileOnInit(void)
   {
     theApp.SetNewActiveTexture( _fnmApplicationPath + MfcStringToCT(strTexture));
   }
+
+#if SE1_TERRAINS
+  char strIni[256];
 
   INI_READ( "Paint power", "1.0");
   GET_FLOAT( m_fPaintPower);
@@ -1012,6 +1017,7 @@ void CWorldEditorApp::ReadFromIniFileOnInit(void)
 
   INI_READ( "FBM Random offset", "NO");
   GET_FLAG( m_bFBMRandomOffset);  
+#endif
 
   m_bShowTipOfTheDay = GetProfileInt(_T("World editor"), _T("Show Tip of the Day"), TRUE);
   m_iCurrentTipOfTheDay = GetProfileInt(_T("World editor"), _T("Current Tip of the Day"), 0);
@@ -1225,6 +1231,7 @@ void CAppPrefs::ReadFromIniFile()
   INI_READ( "Default fly mode speed", "1.0");
   GET_FLOAT( ap_fDefaultFlyModeSpeed);  
 
+#if SE1_TERRAINS
   INI_READ( "Terrain selection visible", "0");
   GET_INDEX( ap_iTerrainSelectionVisible);
   INI_READ( "Terrain selection hidden", "1");
@@ -1235,7 +1242,7 @@ void CAppPrefs::ReadFromIniFile()
 
   INI_READ( "Auto generate distribution", "YES");
   GET_FLAG( ap_bAutoUpdateTerrainDistribution);  
-  
+#endif
 }
 
 // read from INI last values for primitive
@@ -1614,6 +1621,7 @@ void CWorldEditorApp::WriteToIniFileOnEnd(void)
     WriteProfileString( _T("World editor prefs"), _T("Default primitive texture"), CString(strIni));
   }
 
+#if SE1_TERRAINS
   SET_FLOAT( m_fPaintPower);
   INI_WRITE( "Paint power");
 
@@ -1661,6 +1669,7 @@ void CWorldEditorApp::WriteToIniFileOnEnd(void)
 
   SET_FLAG( m_bFBMRandomOffset);  
   INI_WRITE( "FBM Random offset");
+#endif
 
   WriteProfileInt(_T("World editor"), _T("Show Tip of the Day"), m_bShowTipOfTheDay);
   WriteProfileInt(_T("World editor"), _T("Current Tip of the Day"), m_iCurrentTipOfTheDay);
@@ -1738,6 +1747,7 @@ void CAppPrefs::WriteToIniFile()
   SET_FLOAT( ap_fDefaultFlyModeSpeed);  
   INI_WRITE( "Default fly mode speed");
 
+#if SE1_TERRAINS
   SET_INDEX( ap_iTerrainSelectionVisible);
   INI_WRITE( "Terrain selection visible");
   SET_INDEX( ap_iTerrainSelectionHidden);
@@ -1748,6 +1758,7 @@ void CAppPrefs::WriteToIniFile()
 
   SET_FLAG( ap_bAutoUpdateTerrainDistribution);  
   INI_WRITE( "Auto generate distribution");
+#endif
 }
 
 
@@ -2934,6 +2945,8 @@ void CWorldEditorApp::DisplayHelp(const CTFileName &fnHlk, UINT uCommand, DWORD 
 #endif
 }
 
+#if SE1_TERRAINS
+
 CEntity *GetTerrainEntity(void)
 {
   CTerrain *ptTerrain=GetTerrain();
@@ -2997,3 +3010,5 @@ void SelectLayer(INDEX iLayer)
     ptrTerrain->tr_iSelectedLayer=iLayer;
   }
 }
+
+#endif

@@ -56,8 +56,10 @@ public:
   BOOL  m_bRenderHaze;
   BOOL  m_bRenderMirrors;
   CString  m_strBcgTexture;
+#if SE1_WRP_FARCLIP
   float  m_fFarClipPlane;
   BOOL  m_bApplyFarClipInIsometricProjection;
+#endif
   //}}AFX_DATA
 
 

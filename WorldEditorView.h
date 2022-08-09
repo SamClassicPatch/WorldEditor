@@ -529,10 +529,18 @@ public:
   afx_msg void OnKeyU();
   afx_msg void OnKeyD();
   afx_msg void OnFlipPolygon();
-  afx_msg void OnTerrainMode();
-  afx_msg void OnUpdateTerrainMode(CCmdUI* pCmdUI);
   afx_msg void OnKeyM();
   afx_msg void OnKeyBackslash();
+  afx_msg void OnKeyO();
+  afx_msg void OnUpdateKeyO(CCmdUI* pCmdUI);
+  afx_msg void OnKeyCtrlShiftE();
+  afx_msg void OnKeyCtrlShiftG();
+  afx_msg void OnUpdateKeyCtrlShiftG(CCmdUI* pCmdUI);
+  afx_msg void OnKeyCtrlShiftK();
+
+#if SE1_TERRAINS
+  afx_msg void OnTerrainMode();
+  afx_msg void OnUpdateTerrainMode(CCmdUI* pCmdUI);
   afx_msg void OnSelectBrush();
   afx_msg void OnSelectTerrain();
   afx_msg void OnAltitudeEditMode();
@@ -551,20 +559,14 @@ public:
   afx_msg void OnExportHeightmap16();
   afx_msg void OnSelectLayer();
   afx_msg void OnPickLayer();
-  afx_msg void OnKeyO();
-  afx_msg void OnUpdateKeyO(CCmdUI* pCmdUI);
   afx_msg void OnPosterize();
   afx_msg void OnFlatten();
   afx_msg void OnApplyFilter();
   afx_msg void OnTeSmooth();
   afx_msg void OnEditTerrainPrefs();
   afx_msg void OnUpdateEditTerrainPrefs(CCmdUI* pCmdUI);
-  afx_msg void OnKeyCtrlShiftE();
-  afx_msg void OnKeyCtrlShiftG();
-  afx_msg void OnUpdateKeyCtrlShiftG(CCmdUI* pCmdUI);
   afx_msg void OnTerrainLayerOptions();
   afx_msg void OnUpdateTerrainLayerOptions(CCmdUI* pCmdUI);
-  afx_msg void OnKeyCtrlShiftK();
   afx_msg void OnApplyContinousNoise();
   afx_msg void OnApplyMinimum();
   afx_msg void OnApplyMaximum();
@@ -578,6 +580,7 @@ public:
   afx_msg void OnTbrushMinimum();
   afx_msg void OnTbrushPosterize();
   afx_msg void OnTerrainProperties();
+#endif
   //}}AFX_MSG
 
   afx_msg void OnKeyBuffer(UINT nID);

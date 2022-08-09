@@ -50,8 +50,11 @@ CDlgPreferences::CDlgPreferences( CWnd* pParent /*=NULL*/)
   m_bAutoUpdateDisplaceMap = FALSE;
   m_fFlyModeSpeed = 0.0f;
   m_bHideShadowsOnStart = FALSE;
+
+#if SE1_TERRAINS
   m_bAutoUpdateTerrainDistribution = FALSE;
   m_iMemoryForTerrainUndo = 0;
+#endif
   //}}AFX_DATA_INIT
 }
 
@@ -94,10 +97,12 @@ void CDlgPreferences::DoDataExchange(CDataExchange* pDX)
     
     if( IsWindow(m_ctrlCSGPrecission.m_hWnd))
     {
+#if SE1_TERRAINS
       m_ctrlTerrainSelectionVisible.SetCurSel(theApp.m_Preferences.ap_iTerrainSelectionVisible);
       m_ctrlTerrainSelectionHidden.SetCurSel(theApp.m_Preferences.ap_iTerrainSelectionHidden);
       m_iMemoryForTerrainUndo=theApp.m_Preferences.ap_iMemoryForTerrainUndo;
       m_bAutoUpdateTerrainDistribution=theApp.m_Preferences.ap_bAutoUpdateTerrainDistribution;
+#endif
 
       INDEX iCSGPrecission=0;
       for(INDEX iExp=-5; iExp<=5; iExp+=1)
@@ -129,8 +134,10 @@ void CDlgPreferences::DoDataExchange(CDataExchange* pDX)
     m_iWndStartupCfg = theApp.m_Preferences.ap_iStartupWindowSetup;
   }
   //{{AFX_DATA_MAP(CDlgPreferences)
+#if SE1_TERRAINS
   DDX_Control(pDX, IDC_TERRAIN_SELECTION_HIDDEN, m_ctrlTerrainSelectionHidden);
   DDX_Control(pDX, IDC_TERRAIN_SELECTON_VISIBLE, m_ctrlTerrainSelectionVisible);
+#endif
   DDX_Control(pDX, IDC_API, m_ctrGfxApi);
   DDX_Control(pDX, IDC_CSG_PRECISSION, m_ctrlCSGPrecission);
   DDX_Control(pDX, IDC_UNDO_LEVELS, m_UndoLevels);
@@ -152,18 +159,22 @@ void CDlgPreferences::DoDataExchange(CDataExchange* pDX)
   DDX_Text(pDX, IDC_FLY_MODE_SPEED, m_fFlyModeSpeed);
   DDV_MinMaxFloat(pDX, m_fFlyModeSpeed, 0.f, 1000.f);
   DDX_Check(pDX, IDC_PREFS_HIDE_SHADOWS_ON_START, m_bHideShadowsOnStart);
+#if SE1_TERRAINS
   DDX_Check(pDX, IDC_PREFS_AUTO_GENERATE_TD, m_bAutoUpdateTerrainDistribution);
   DDX_Text(pDX, IDC_MEMORY_FOR_UNDO, m_iMemoryForTerrainUndo);
   DDV_MinMaxInt(pDX, m_iMemoryForTerrainUndo, -1, 512);
+#endif
   //}}AFX_DATA_MAP
 
   // if dialog is giving data
   if( pDX->m_bSaveAndValidate != FALSE)
   {
+#if SE1_TERRAINS
     theApp.m_Preferences.ap_iTerrainSelectionVisible=m_ctrlTerrainSelectionVisible.GetCurSel();
     theApp.m_Preferences.ap_iTerrainSelectionHidden=m_ctrlTerrainSelectionHidden.GetCurSel();
     theApp.m_Preferences.ap_bAutoUpdateTerrainDistribution=m_bAutoUpdateTerrainDistribution;
     theApp.m_Preferences.ap_iMemoryForTerrainUndo=m_iMemoryForTerrainUndo;
+#endif
 
     theApp.m_Preferences.ap_CopyExistingWindowPrefs = m_PrefsCopy;
     theApp.m_Preferences.ap_AutoMaximizeWindow = m_AutoMaximize;
@@ -232,6 +243,7 @@ BOOL CDlgPreferences::OnInitDialog()
   }
 #endif // SE1_D3D
 
+#if SE1_TERRAINS
   m_ctrlTerrainSelectionVisible.ResetContent();
   m_ctrlTerrainSelectionVisible.AddString(_T("Texture"));
   m_ctrlTerrainSelectionVisible.AddString(_T("Wireframe"));
@@ -243,6 +255,7 @@ BOOL CDlgPreferences::OnInitDialog()
   m_ctrlTerrainSelectionHidden.AddString(_T("Wireframe"));
   m_ctrlTerrainSelectionHidden.AddString(_T("Vertices"));
   m_ctrlTerrainSelectionHidden.AddString(_T("None"));
+#endif
 
   UpdateData( FALSE);
   return TRUE;
