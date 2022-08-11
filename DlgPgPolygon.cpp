@@ -73,6 +73,8 @@ void CDlgPgPolygon::DoDataExchange(CDataExchange* pDX)
     m_IsInvisible.EnableWindow( bSelectionExists);
 #if SE1_DSPOLYGONS
     m_IsDoubleSided.EnableWindow( bSelectionExists);
+#else
+    GetDlgItem(IDC_DOUBLESIDED)->EnableWindow(FALSE);
 #endif
     m_bIsDetail.EnableWindow( bSelectionExists);    
     m_IsTranslucent.EnableWindow( bSelectionExists);
