@@ -1486,10 +1486,10 @@ BEGIN
     GROUPBOX        "Misc",IDC_MISC_BORDER,142,95,141,59,BS_CENTER
     LTEXT           "Fly mode speed:",IDC_STATIC,151,111,61,9
     LTEXT           "Display API:",IDC_STATIC,151,129,65,8
-    LTEXT           "Selection visible:",IDC_STATIC,10,209,60,8
-    GROUPBOX        "Terrain mode",IDC_STATIC,5,195,280,45,BS_CENTER
-    LTEXT           "Selection hidden:",IDC_STATIC,10,225,60,8
-    LTEXT           "Memory for undo (Mb):",IDC_STATIC,146,209,74,8
+    LTEXT           "Selection visible:",IDC_TEXT_TERRAIN_VISIBLE,10,209,60,8
+    GROUPBOX        "Terrain mode",IDC_STATIC_TERRAIN_BORDER,5,195,280,45,BS_CENTER
+    LTEXT           "Selection hidden:",IDC_TEXT_TERRAIN_HIDDEN,10,225,60,8
+    LTEXT           "Memory for undo (Mb):",IDC_TEXT_TERRAIN_MEMORY,146,209,74,8
     CONTROL         "&Auto update terrain distribution",
                     IDC_PREFS_AUTO_GENERATE_TD,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,145,223,135,10

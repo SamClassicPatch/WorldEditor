@@ -72,6 +72,11 @@ void CDlgPreferences::DoDataExchange(CDataExchange* pDX)
 
     // [Cecil] Disable terrain properties
     #if !SE1_TERRAINS
+      GetDlgItem(IDC_STATIC_TERRAIN_BORDER)->EnableWindow(FALSE);
+      GetDlgItem(IDC_TEXT_TERRAIN_HIDDEN)->EnableWindow(FALSE);
+      GetDlgItem(IDC_TEXT_TERRAIN_VISIBLE)->EnableWindow(FALSE);
+      GetDlgItem(IDC_TEXT_TERRAIN_MEMORY)->EnableWindow(FALSE);
+
       GetDlgItem(IDC_TERRAIN_SELECTION_HIDDEN)->EnableWindow(FALSE);
       GetDlgItem(IDC_TERRAIN_SELECTON_VISIBLE)->EnableWindow(FALSE);
       GetDlgItem(IDC_PREFS_AUTO_GENERATE_TD)->EnableWindow(FALSE);

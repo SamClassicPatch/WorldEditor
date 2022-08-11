@@ -755,6 +755,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #define IDC_CT_OCTAVES_SPIN             1262
 #define IDC_GLOBAL_PRETENDER            1263
 #define IDC_BCG_PICTURE_SIZE            1264
+#define IDC_STATIC_TERRAIN_BORDER       1264
+#define IDC_TEXT_TERRAIN_HIDDEN         1265
+#define IDC_TEXT_TERRAIN_VISIBLE        1266
+#define IDC_TEXT_TERRAIN_MEMORY         1267
 #define IDC_FBM_PREVIEW_FRAME           1284
 #define IDC_IS_LIGHT_BEAM_PASSABLLE     11048
 #define IDC_NO_SHADOW                   11049
@@ -1327,9 +1331,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
-#define _APS_NEXT_RESOURCE_VALUE        255
+#define _APS_NEXT_RESOURCE_VALUE        259
 #define _APS_NEXT_COMMAND_VALUE         33391
-#define _APS_NEXT_CONTROL_VALUE         1264
+#define _APS_NEXT_CONTROL_VALUE         1268
 #define _APS_NEXT_SYMED_VALUE           111
 #endif
 #endif
