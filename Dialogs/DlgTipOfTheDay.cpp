@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "StdH.h"
 #include "WorldEditor.h"
 #include "DlgTipOfTheDay.h"
-#include "CtlTipOfTheDayText.h"
+#include "Controls/CtlTipOfTheDayText.h"
 
 #ifdef _DEBUG
 #undef new

@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 // DlgTipOfTheDay.h : header file
 //
 
-#include "CtlTipOfTheDayText.h"
+#include "Controls/CtlTipOfTheDayText.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CDlgTipOfTheDay dialog
