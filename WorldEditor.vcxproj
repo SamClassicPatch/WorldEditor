@@ -249,6 +249,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_TSE105|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_TFE105|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Cecil\CompatibilityPatches.cpp" />
     <ClCompile Include="Cecil\EngineCompatibility.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="ColoredButton.cpp" />
@@ -495,7 +496,7 @@
     <ClInclude Include="PropertyComboBar.h" />
     <ClInclude Include="PropertyComboBox.h" />
     <CustomBuild Include="Resource.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'">makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\resources.hm"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'">makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 Resource.h &gt;&gt;"hlp\resources.hm"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'">Building help ids from %(FullPath)</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'">hlp\resources.hm;%(Outputs)</Outputs>
     </CustomBuild>
