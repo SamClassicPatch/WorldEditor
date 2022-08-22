@@ -25,9 +25,14 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "Resource.h"       // main symbols
 #include "Viewers.h"
 
-
-#define CHILD_CONFIGURATION_VER "V012"
-#define VIEW_PREFERENCES_VER "V012"
+// [Cecil] Older version in 1.05
+#if SE1_VER < 107
+  #define CHILD_CONFIGURATION_VER "V011"
+  #define VIEW_PREFERENCES_VER "V011"
+#else
+  #define CHILD_CONFIGURATION_VER "V012"
+  #define VIEW_PREFERENCES_VER "V012"
+#endif
 
 #define VIEW_PREFERENCES_CT 10
 #define CHILD_CONFIGURATIONS_CT 10
@@ -330,7 +335,7 @@ class CWorldEditorApp : public CWinApp
 private:
   CWorldEditorDoc *m_pLastActivatedDocument;
 public:
-// Atributes
+  // Attributes
 #if SE1_TERRAINS
   FLOAT3D m_vLastTerrainHit;
   CEntity *m_penLastTerrainHit;
