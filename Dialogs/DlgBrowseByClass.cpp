@@ -235,8 +235,8 @@ CTString GetItemValue(CEntity *pen, INDEX iColumn, INDEX &iFormat)
   {
   case COLUMN_INDEX:
   {
-    INDEX iIndex=dcEntities.GetIndex(pen);
-    strResult.PrintF("%d", iIndex);
+    // [Cecil] Display entity ID instead of the index in the list
+    strResult.PrintF("%u", pen->en_ulID);
     iFormat=PDF_INDEX;
     break;
   }
@@ -638,7 +638,7 @@ void CDlgBrowseByClass::InitializeListColumns(void)
   m_listEntities.InsertColumn( COLUMN_NAME, _T("Name"), LVCFMT_LEFT, pixInstanceName);
   m_listEntities.InsertColumn( COLUMN_DESCRIPTION, _T("Description"), LVCFMT_LEFT, pixDescription);
   m_listEntities.InsertColumn( COLUMN_SECTOR_NAME, _T("Sector name"), LVCFMT_LEFT, pixSectorName);
-  m_listEntities.InsertColumn( COLUMN_INDEX, _T("No"), LVCFMT_LEFT, pixEntityIndex);
+  m_listEntities.InsertColumn( COLUMN_INDEX, _T("ID"), LVCFMT_LEFT, pixEntityIndex);
   m_listEntities.InsertColumn( COLUMN_SPAWN_FLAGS, _T("Spawn Flags"), LVCFMT_LEFT, pixSpawnFlags);
   m_listEntities.InsertColumn( COLUMN_DISTANCE, _T("Distance"), LVCFMT_LEFT, pixDistance);
   PIX pixPlacement = (rectListControl.Width()-
