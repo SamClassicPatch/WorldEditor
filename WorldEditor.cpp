@@ -556,6 +556,9 @@ BOOL CWorldEditorApp::SubInitInstance()
   Enable3dControlsStatic();  // Call this when linking to MFC statically
 #endif
 
+  // [Cecil] Mark as an editor
+  CCoreAPI::SetApplication(CCoreAPI::APP_EDITOR);
+
   // [Cecil] Function patches
   _EnginePatches.UnpageStreams();
 
