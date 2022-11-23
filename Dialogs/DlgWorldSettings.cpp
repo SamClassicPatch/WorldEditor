@@ -313,7 +313,7 @@ BOOL CDlgWorldSettings::OnInitDialog()
 void CDlgWorldSettings::OnBrowseTopViewPicture()
 {
   CTFileName fnPicture = _EngineGUI.FileRequester( "Picture for top view",
-    FILTER_PICTURES FILTER_ALL FILTER_END, "Picture for view directory", "");
+    FILTER_PICS FILTER_ALL FILTER_END, "Picture for view directory", "");
   if( fnPicture == "") return;
   GetDlgItem( IDC_TOP_VIEW_PICTURE_T)->SetWindowText( CString(fnPicture));
   m_strTopViewPicture = fnPicture;
@@ -324,7 +324,7 @@ void CDlgWorldSettings::OnBrowseTopViewPicture()
 void CDlgWorldSettings::OnBrowseFrontViewPicture()
 {
   CTFileName fnPicture = _EngineGUI.FileRequester( "Picture for front view",
-    FILTER_PICTURES FILTER_ALL FILTER_END, "Picture for view directory", "");
+    FILTER_PICS FILTER_ALL FILTER_END, "Picture for view directory", "");
   if( fnPicture == "") return;
   GetDlgItem( IDC_FRONT_VIEW_PICTURE_T)->SetWindowText( CString(fnPicture));
   m_strFrontViewPicture = fnPicture;
@@ -335,7 +335,7 @@ void CDlgWorldSettings::OnBrowseFrontViewPicture()
 void CDlgWorldSettings::OnBrowseRightViewPicture()
 {
   CTFileName fnPicture = _EngineGUI.FileRequester( "Picture for right view",
-    FILTER_PICTURES FILTER_ALL FILTER_END, "Picture for view directory", "");
+    FILTER_PICS FILTER_ALL FILTER_END, "Picture for view directory", "");
   if( fnPicture == "") return;
   GetDlgItem( IDC_RIGHT_VIEW_PICTURE_T)->SetWindowText( CString(fnPicture));
   m_strRightViewPicture = fnPicture;
