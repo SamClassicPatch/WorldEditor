@@ -556,9 +556,8 @@ BOOL CWorldEditorApp::SubInitInstance()
   Enable3dControlsStatic();  // Call this when linking to MFC statically
 #endif
 
-  // [Cecil] Custom patches
-  extern void CECIL_ApplyCompatibilityPatch(void);
-  CECIL_ApplyCompatibilityPatch();
+  // [Cecil] Function patches
+  _EnginePatches.UnpageStreams();
 
   // initialize entire engine
   SE_InitEngine("SeriousEditor");

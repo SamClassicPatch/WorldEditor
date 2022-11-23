@@ -245,7 +245,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_TSE105|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_TFE105|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Cecil\CompatibilityPatches.cpp" />
     <ClCompile Include="Cecil\EngineCompatibility.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="ColoredButton.cpp" />

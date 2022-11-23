@@ -141,9 +141,6 @@
     <ClCompile Include="Cecil\EngineCompatibility.cpp">
       <Filter>Source Files\Cecil</Filter>
     </ClCompile>
-    <ClCompile Include="Cecil\CompatibilityPatches.cpp">
-      <Filter>Source Files\Cecil</Filter>
-    </ClCompile>
     <ClCompile Include="Dialogs\DlgSnapVertex.cpp">
       <Filter>Source Files\Dialogs</Filter>
     </ClCompile>
