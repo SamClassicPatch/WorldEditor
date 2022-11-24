@@ -2242,7 +2242,7 @@ void CWorldEditorApp::OnFileOpen()
   // call file requester for opening documents
   CDynamicArray<CTFileName> afnOpenedWorlds;
   _EngineGUI.FileRequester( "Choose worlds to open", FILTER_WLD FILTER_ALL FILTER_END,
-    "Open world directory", "Worlds\\", "", &afnOpenedWorlds);
+    "Open world directory", "Levels\\", "", &afnOpenedWorlds);
   FOREACHINDYNAMICARRAY( afnOpenedWorlds, CTFileName, itWorld)
   {
     // try to load document
