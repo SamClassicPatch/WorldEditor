@@ -157,10 +157,10 @@ BOOL CreateFBMTexture(PIX pixW, PIX pixH, CTFileName fnFBMFile)
     }
   }
 
-  CTextureData tdFBM;
+  CTexDataPatch tdFBM; // [Cecil] Patched
   try
   {
-    tdFBM.Create_t( &ii, pixW, 16, TRUE);
+    tdFBM.P_Create(&ii, pixW, 16, TEX_32BIT);
     tdFBM.Save_t( fnFBMFile);
   }
   catch( char *strError)

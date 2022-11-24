@@ -445,8 +445,8 @@ void CWorldEditorDoc::SetupBackdropTextureObject( CTFileName fnPicture, CTexture
     {
       CTFileName fnTexture = fnPicture.FileDir()+fnPicture.FileName()+".tex";
       // creates new texture with one frame
-      CTextureData tdPicture;
-      tdPicture.Create_t( &iiImageInfo, iiImageInfo.ii_Width, 1, FALSE);
+      CTexDataPatch tdPicture; // [Cecil] Patched
+      tdPicture.P_Create( &iiImageInfo, iiImageInfo.ii_Width, 1, NONE);
       tdPicture.Save_t( fnTexture);
       to.SetData_t( fnTexture);
     }
@@ -3793,7 +3793,7 @@ void CWorldEditorDoc::SaveThumbnail()
 {
   CDrawPort *pDrawPort;
   CImageInfo II;
-  CTextureData TD;
+  CTexDataPatch TD; // [Cecil] Patched
   CAnimData AD;
   ULONG flags = NONE;
 
@@ -3851,7 +3851,7 @@ void CWorldEditorDoc::SaveThumbnail()
       // remove application path
       fnThumbnail.RemoveApplicationPath_t();
       // create image info from texture
-      TD.Create_t( &II, 128, MAX_MEX_LOG2, FALSE);
+      TD.P_Create( &II, 128, MAX_MEX_LOG2, NONE);
       // save the thumbnail
       CTFileStream File;
       File.Create_t( fnThumbnail);

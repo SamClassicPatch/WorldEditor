@@ -12924,8 +12924,7 @@ BOOL CWorldEditorView::SaveAutoTexture(FLOATaabbox3D boxBrush, CTFileName &fnTex
       II.SaveTGA_t( fnPretenderTexture);
       fnTex=fnPretenderTexture.NoExt()+".tex";
       // create temporary texture
-      CreateTexture_t( fnPretenderTexture, fnTex,
-                       dlg.m_pixWidth, MAX_MEX_LOG2+1, FALSE);
+      P_CreateTextureOut(fnPretenderTexture, fnTex, dlg.m_pixWidth, MAX_MEX_LOG2 + 1, FALSE); // [Cecil]
       _EngineGUI.CreateTexture( fnTex);
     } // if failed
     catch (char *strError) {

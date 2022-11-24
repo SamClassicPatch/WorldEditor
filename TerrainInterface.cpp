@@ -555,10 +555,10 @@ void GenerateTerrainBrushTexture( INDEX iBrush, FLOAT fHotSpot, FLOAT fFallOff)
       pcol++;
     }
   }
-  CTextureData tdBrush;
+  CTexDataPatch tdBrush; // [Cecil] Patched
   try
   {
-    tdBrush.Create_t( &ii, pixSize, 16, TRUE);
+    tdBrush.P_Create(&ii, pixSize, 16, TEX_32BIT);
     CTString strBrushFile;
     strBrushFile.PrintF("Textures\\Editor\\TerrainBrush%02d.tex", iBrush);
     tdBrush.Save_t( strBrushFile);
@@ -987,10 +987,10 @@ void ApplyLayerTextureCommand(INDEX iSelectedItem)
       }
       _pTextureStock->Release(ptdGradient);
 
-      CTextureData tdIzohipse;
+      CTexDataPatch tdIzohipse; // [Cecil] Patched
       try
       {
-        tdIzohipse.Create_t( &ii, 1024, 16, TRUE);
+        tdIzohipse.P_Create(&ii, 1024, 16, TEX_32BIT);
         tdIzohipse.Save_t( fnIzohipseTexture);
         ptlLayer->SetLayerTexture_t(fnIzohipseTexture);
         ptlLayer->tl_fStretchX=1.0f/ptrTerrain->tr_vTerrainSize(1);
@@ -1784,7 +1784,7 @@ void InvokeTerrainOptions(CTIButton *ptib, CPoint pt, CDrawPort *pdp)
 
 void DisplayHeightMapWindow(CPoint pt)
 {
-  CTextureData tdHeightMap;
+  CTexDataPatch tdHeightMap; // [Cecil] Patched
   CImageInfo ii;
 
   CTerrain *ptrTerrain=GetTerrain();
@@ -1815,7 +1815,7 @@ void DisplayHeightMapWindow(CPoint pt)
 
   try
   {
-    tdHeightMap.Create_t( &ii, pixW-1, 16, TRUE);
+    tdHeightMap.P_Create(&ii, pixW - 1, 16, TEX_32BIT);
     CTString strHeightMap="Temp\\ViewHeightMap.tex";
     tdHeightMap.Save_t( strHeightMap);
 
