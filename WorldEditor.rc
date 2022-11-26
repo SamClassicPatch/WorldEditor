@@ -453,6 +453,48 @@ BEGIN
         MENUITEM "&Audio settings",             ID_GAME_AUDIO
         MENUITEM "&Video settings",             ID_GAME_VIDEO
         MENUITEM SEPARATOR
+        POPUP "Set Gamemode"
+        BEGIN
+            MENUITEM "Mode 0 (Singleplayer)",   ID_TEST_MODESP
+            MENUITEM SEPARATOR
+            MENUITEM "Mode 0 (Cooperative)",    ID_TEST_MODE1
+            MENUITEM "Mode 1 (Scorematch)",     ID_TEST_MODE2
+            MENUITEM "Mode 2 (Deathmatch)",     ID_TEST_MODE3
+            MENUITEM "Mode 3",                  ID_TEST_MODE4
+            MENUITEM "Mode 4",                  ID_TEST_MODE5
+            MENUITEM "Mode 5",                  ID_TEST_MODE6
+            MENUITEM "Mode 6",                  ID_TEST_MODE7
+            MENUITEM "Mode 7",                  ID_TEST_MODE8
+            MENUITEM "Mode 8",                  ID_TEST_MODE9
+            MENUITEM "Mode 9",                  ID_TEST_MODE10
+            MENUITEM "Mode 10",                 ID_TEST_MODE11
+            MENUITEM "Mode 11",                 ID_TEST_MODE12
+            MENUITEM "Mode 12",                 ID_TEST_MODE13
+            MENUITEM "Mode 13",                 ID_TEST_MODE14
+            MENUITEM "Mode 14",                 ID_TEST_MODE15
+            MENUITEM "Mode 15",                 ID_TEST_MODE16
+        END
+        POPUP "Set Difficulty"
+        BEGIN
+            MENUITEM "Level -1 (Tourist)",      ID_TEST_TOURIST
+            MENUITEM SEPARATOR
+            MENUITEM "Level 0 (Easy)",          ID_TEST_DIFF1
+            MENUITEM "Level 1 (Normal)",        ID_TEST_DIFF2
+            MENUITEM "Level 2 (Hard)",          ID_TEST_DIFF3
+            MENUITEM "Level 3 (Serious)",       ID_TEST_DIFF4
+            MENUITEM "Level 4 (Mental)",        ID_TEST_DIFF5
+            MENUITEM "Level 5",                 ID_TEST_DIFF6
+            MENUITEM "Level 6",                 ID_TEST_DIFF7
+            MENUITEM "Level 7",                 ID_TEST_DIFF8
+            MENUITEM "Level 8",                 ID_TEST_DIFF9
+            MENUITEM "Level 9",                 ID_TEST_DIFF10
+            MENUITEM "Level 10",                ID_TEST_DIFF11
+            MENUITEM "Level 11",                ID_TEST_DIFF12
+            MENUITEM "Level 12",                ID_TEST_DIFF13
+            MENUITEM "Level 13",                ID_TEST_DIFF14
+            MENUITEM "Level 14",                ID_TEST_DIFF15
+            MENUITEM "Level 15",                ID_TEST_DIFF16
+        END
         MENUITEM "Test Game\tT",                ID_TEST_GAME
         MENUITEM "Test Game (full screen)\tCtrl+T", ID_TEST_GAME_FULLSCREEN
         MENUITEM SEPARATOR

@@ -85,6 +85,14 @@ BEGIN_MESSAGE_MAP(CChildFrame, CMDIChildWnd)
   ON_UPDATE_COMMAND_UI(ID_TEST_GAME_FULLSCREEN, OnUpdateTestGame)
   ON_COMMAND(ID_KEY_CTRL_G, OnKeyCtrlG)
   ON_UPDATE_COMMAND_UI(ID_KEY_CTRL_G, OnUpdateKeyCtrlG)
+
+  // [Cecil] Set game in a specific gamemode
+  ON_COMMAND_RANGE(ID_TEST_MODESP, ID_TEST_MODE16, OnSelectGameMode)
+  ON_UPDATE_COMMAND_UI_RANGE(ID_TEST_MODESP, ID_TEST_MODE16, OnUpdateSelectGameMode)
+
+  // [Cecil] Set game on a specific difficulty
+  ON_COMMAND_RANGE(ID_TEST_TOURIST, ID_TEST_DIFF16, OnSelectDifficulty)
+  ON_UPDATE_COMMAND_UI_RANGE(ID_TEST_TOURIST, ID_TEST_DIFF16, OnUpdateSelectDifficulty)
   //}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1152,3 +1160,43 @@ void CChildFrame::OnUpdateKeyY(CCmdUI* pCmdUI)
   }
 }
 
+// [Cecil] Set game in a specific gamemode
+void CChildFrame::OnSelectGameMode(UINT nID) {
+  const INDEX iMode = ClampDn(INDEX(nID) - INDEX(ID_TEST_MODE1), (INDEX)0);
+  const BOOL bMP = (nID != ID_TEST_MODESP);
+
+  CTString strSet;
+  strSet.PrintF("gam_bQuickStartMP = %d; gam_iQuickStartMode = %d;", bMP, iMode);
+
+  _pShell->Execute(strSet);
+};
+
+void CChildFrame::OnUpdateSelectGameMode(CCmdUI *pCmdUI) {
+  const INDEX iMode = ClampDn(INDEX(pCmdUI->m_nID) - INDEX(ID_TEST_MODE1), (INDEX)0);
+  const BOOL bMP = (pCmdUI->m_nID != ID_TEST_MODESP);
+
+  // Check this gamemode if it's active
+  static CSymbolPtr symptrMP("gam_bQuickStartMP");
+  static CSymbolPtr symptrMode("gam_iQuickStartMode");
+
+  pCmdUI->SetCheck(symptrMP.GetIndex() == bMP && symptrMode.GetIndex() == iMode);
+};
+
+// [Cecil] Set game on a specific difficulty
+void CChildFrame::OnSelectDifficulty(UINT nID) {
+  const INDEX iDiff = INDEX(nID) - INDEX(ID_TEST_DIFF1);
+
+  CTString strSet;
+  strSet.PrintF("gam_iQuickStartDifficulty = %d;", iDiff);
+
+  _pShell->Execute(strSet);
+};
+
+void CChildFrame::OnUpdateSelectDifficulty(CCmdUI *pCmdUI) {
+  const INDEX iDiff = INDEX(pCmdUI->m_nID) - INDEX(ID_TEST_DIFF1);
+
+  // Check this difficulty if it's active
+  static CSymbolPtr symptrDiff("gam_iQuickStartDifficulty");
+
+  pCmdUI->SetCheck(symptrDiff.GetIndex() == iDiff);
+};

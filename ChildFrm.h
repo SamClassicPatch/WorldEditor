@@ -146,6 +146,14 @@ public:
   afx_msg void OnUpdateKeyY(CCmdUI* pCmdUI);
   afx_msg void OnKeyCtrlG();
   afx_msg void OnUpdateKeyCtrlG(CCmdUI* pCmdUI);
+
+  // [Cecil] Set game in a specific gamemode
+  afx_msg void OnSelectGameMode(UINT nID);
+  afx_msg void OnUpdateSelectGameMode(CCmdUI *pCmdUI);
+
+  // [Cecil] Set game on a specific difficulty
+  afx_msg void OnSelectDifficulty(UINT nID);
+  afx_msg void OnUpdateSelectDifficulty(CCmdUI *pCmdUI);
   //}}AFX_MSG
   DECLARE_MESSAGE_MAP()
 };
