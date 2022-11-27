@@ -804,11 +804,13 @@ void CMainFrame::CustomColorPicker( PIX pixX, PIX pixY)
   {
     // instantiate new choose color palette window
     m_pColorPalette = new CColorPaletteWnd;
-    // create window
-    BOOL bResult = m_pColorPalette->CreateEx( WS_EX_TOOLWINDOW,
-      NULL, _T("Palette"), WS_CHILD|WS_POPUP|WS_VISIBLE,
-      rectWindow.left, rectWindow.top, rectWindow.Width(), rectWindow.Height(),
-      m_hWnd, NULL, NULL);
+
+    // [Cecil] Fixed error upon opening the color picker in 1.10
+    BOOL bResult = m_pColorPalette->CreateEx(WS_EX_TOOLWINDOW, NULL,
+      _T("Palette"), WS_POPUP | WS_VISIBLE, rectWindow, NULL, NULL, NULL);
+
+    m_pColorPalette->SetFocus();
+
     if( !bResult)
     {
       AfxMessageBox( _T("Error: Failed to create color palette"));
