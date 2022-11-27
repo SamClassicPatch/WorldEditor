@@ -1165,43 +1165,26 @@ void CWorldEditorDoc::SnapAngle( ANGLE &angDest, ANGLE angStep /* SNAP_ANGLE_GRI
 // does "snap to grid" for given placement
 void CWorldEditorDoc::SnapToGrid( CPlacement3D &plPlacement, FLOAT fSnapValue)
 {
-  FLOAT fAngleSnap = SNAP_ANGLE_GRID;
-  if( fSnapValue < SNAP_FLOAT_CM) fSnapValue = SNAP_FLOAT_CM;
-  if( !m_bAutoSnap)
-  {
+  if (!m_bAutoSnap || fSnapValue < SNAP_FLOAT_CM) {
     fSnapValue = SNAP_FLOAT_CM;
-    fAngleSnap = ANGLE_SNAP/32.0f;
   }
 
-  // snap X coordinate
-  SnapFloat( plPlacement.pl_PositionVector(1), fSnapValue);
-  // snap Y coordinate
-  SnapFloat( plPlacement.pl_PositionVector(2), fSnapValue);
-  // snap Z coordinate
-  SnapFloat( plPlacement.pl_PositionVector(3), fSnapValue);
-  
-  /*
-  // snap H angle
-  SnapAngle( plPlacement.pl_OrientationAngle(1));
-  // snap P angle
-  SnapAngle( plPlacement.pl_OrientationAngle(2));
-  // snap B angle
-  SnapAngle( plPlacement.pl_OrientationAngle(3));
-  */
-  
-  // snap X coordinate
-  SnapFloat( plPlacement.pl_PositionVector(1), SNAP_FLOAT_CM);
-  // snap Y coordinate
-  SnapFloat( plPlacement.pl_PositionVector(2), SNAP_FLOAT_CM);
-  // snap Z coordinate
-  SnapFloat( plPlacement.pl_PositionVector(3), SNAP_FLOAT_CM);
-  
-  // snap H angle
-  SnapAngle( plPlacement.pl_OrientationAngle(1), fAngleSnap);
-  // snap P angle
-  SnapAngle( plPlacement.pl_OrientationAngle(2), fAngleSnap);
-  // snap B angle
-  SnapAngle( plPlacement.pl_OrientationAngle(3), fAngleSnap);
+  // Snap XYZ coordinates to the needed value and then to the minimal one, just in case
+  SnapFloat(plPlacement.pl_PositionVector(1), fSnapValue);
+  SnapFloat(plPlacement.pl_PositionVector(2), fSnapValue);
+  SnapFloat(plPlacement.pl_PositionVector(3), fSnapValue);
+
+  SnapFloat(plPlacement.pl_PositionVector(1), SNAP_FLOAT_CM);
+  SnapFloat(plPlacement.pl_PositionVector(2), SNAP_FLOAT_CM);
+  SnapFloat(plPlacement.pl_PositionVector(3), SNAP_FLOAT_CM);
+
+  // [Cecil] Don't snap the angle to anything if autosnapping is disabled
+  if (m_bAutoSnap) {
+    // Snap HPB angles
+    SnapAngle(plPlacement.pl_OrientationAngle(1), SNAP_ANGLE_GRID);
+    SnapAngle(plPlacement.pl_OrientationAngle(2), SNAP_ANGLE_GRID);
+    SnapAngle(plPlacement.pl_OrientationAngle(3), SNAP_ANGLE_GRID);
+  }
 }
 
 // static vars used for polygon creation in primitives
