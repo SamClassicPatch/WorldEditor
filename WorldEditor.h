@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "Viewers.h"
 
 // [Cecil] Older version in 1.05
-#if SE1_VER < 107
+#if SE1_VER < SE1_107
   #define CHILD_CONFIGURATION_VER "V011"
   #define VIEW_PREFERENCES_VER "V011"
 #else

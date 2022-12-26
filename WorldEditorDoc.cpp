@@ -4873,8 +4873,7 @@ _nextLoopEdge:;
           aiTriangles[iTri*3+1] = -1;
           aiTriangles[iTri*3+2] = -1;
           CBrushVertex *pbvThird = pbpo->bpo_apbvxTriangleVertices[iThirdVertex];
-          // [Cecil] CDynamicContainer::Insert() doesn't exist before 1.10
-          ContainerInsert(aNgon.ang_cbpoVertices, pbvThird, iLoopEdge+1);
+          aNgon.ang_cbpoVertices.Insert(pbvThird, iLoopEdge+1);
           goto _nextLoopEdge;
         }
       }

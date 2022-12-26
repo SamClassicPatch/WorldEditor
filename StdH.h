@@ -37,7 +37,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #endif
 
 // [Cecil] Newer engine features
-#define SE1_NEWFEATURES (SE1_VER >= 107) // 1.07 or newer
+#define SE1_NEWFEATURES (SE1_VER >= SE1_107) // 1.07 or newer
 
 #define SE1_TERRAINS      SE1_NEWFEATURES // Terrain system
 #define SE1_DSPOLYGONS    SE1_NEWFEATURES // Double-sided brush polygons flag
