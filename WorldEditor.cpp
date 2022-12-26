@@ -455,7 +455,7 @@ static CTString GetNextParam(void)
     // if not found
     if (pchClosingQuote==NULL) {
       // error in command line
-      cmd_strOutput+=CTString(0, TRANS("Command line error!\n"));
+      cmd_strOutput += LOCALIZE("Command line error!\n");
       // finish parsing
       _strCmd = "";
       return "";
@@ -500,7 +500,7 @@ void CWorldEditorApp::MyParseCommandLine(void)
 {
   _strCmd = MfcStringToCT(m_lpCmdLine);
   cmd_strOutput = "";
-  cmd_strOutput+=CTString(0, TRANS("Command line: '%s'\n"), _strCmd);
+  cmd_strOutput += CTString(0, LOCALIZE("Command line: '%s'\n"), _strCmd);
   // if no command line
   if (strlen(_strCmd) == 0) {
     // do nothing
@@ -2359,7 +2359,7 @@ void CWorldEditorApp::OnConvertWorlds()
         // if old texture has been loaded
         if( tdTex.td_ulFlags & TEX_WASOLD) {
           // cannost convert mangled textures
-          if( tdTex.td_ptegEffect==NULL && tdTex.IsModified()) throw( TRANS("Cannot write texture that has modified frames."));
+          if( tdTex.td_ptegEffect==NULL && tdTex.IsModified()) throw(LOCALIZE("Cannot write texture that has modified frames."));
           // get original file date
           if( _stat( fnmFileFull, &FileStat)) throw "Error getting file date.";
           // save texture in new format
