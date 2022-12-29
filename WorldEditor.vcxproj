@@ -49,52 +49,56 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_TSE107|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
-    <Import Project="..\Properties\TSE107.props" />
+    <Import Project="$(SolutionDir)Includes\Properties\TSE107.props" />
+    <Import Project="$(SolutionDir)Properties\Common.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_TFE105|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
-    <Import Project="..\Properties\TFE105.props" />
+    <Import Project="$(SolutionDir)Includes\Properties\TFE105.props" />
+    <Import Project="$(SolutionDir)Properties\Common.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_TSE105|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
-    <Import Project="..\Properties\TSE105.props" />
+    <Import Project="$(SolutionDir)Includes\Properties\TSE105.props" />
+    <Import Project="$(SolutionDir)Properties\Common.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
-    <Import Project="..\Properties\TSE107.props" />
+    <Import Project="$(SolutionDir)Includes\Properties\TSE107.props" />
+    <Import Project="$(SolutionDir)Properties\Common.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_TSE107|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(CommonIncludes);$(EngineIncludes);$(IncludePath)</IncludePath>
-    <LibraryPath>$(EngineLibraries);$(OtherLibraries)</LibraryPath>
+    <IncludePath>$(CommonIncludes);$(SamEngineIncludes);$(IncludePath)</IncludePath>
+    <LibraryPath>$(SamEngineLibraries);$(OtherLibraries)</LibraryPath>
     <OutDir>$(BinDir)</OutDir>
     <IntDir>$(ObjDir)</IntDir>
     <TargetName>SeriousEditor_Custom</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_TSE107|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(CommonIncludes);$(EngineIncludes);$(IncludePath)</IncludePath>
-    <LibraryPath>$(EngineLibraries);$(OtherLibraries)</LibraryPath>
+    <IncludePath>$(CommonIncludes);$(SamEngineIncludes);$(IncludePath)</IncludePath>
+    <LibraryPath>$(SamEngineLibraries);$(OtherLibraries)</LibraryPath>
     <OutDir>$(BinDir)</OutDir>
     <IntDir>$(ObjDir)</IntDir>
     <TargetName>SeriousEditor_Custom</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_TSE105|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(CommonIncludes);$(EngineIncludes);$(IncludePath)</IncludePath>
-    <LibraryPath>$(EngineLibraries);$(OtherLibraries)</LibraryPath>
+    <IncludePath>$(CommonIncludes);$(SamEngineIncludes);$(IncludePath)</IncludePath>
+    <LibraryPath>$(SamEngineLibraries);$(OtherLibraries)</LibraryPath>
     <OutDir>$(BinDir)</OutDir>
     <IntDir>$(ObjDir)</IntDir>
     <TargetName>SeriousEditor_Custom</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_TFE105|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(CommonIncludes);$(EngineIncludes);$(IncludePath)</IncludePath>
-    <LibraryPath>$(EngineLibraries);$(OtherLibraries)</LibraryPath>
+    <IncludePath>$(CommonIncludes);$(SamEngineIncludes);$(IncludePath)</IncludePath>
+    <LibraryPath>$(SamEngineLibraries);$(OtherLibraries)</LibraryPath>
     <OutDir>$(BinDir)</OutDir>
     <IntDir>$(ObjDir)</IntDir>
     <TargetName>SeriousEditor_Custom</TargetName>
@@ -108,7 +112,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
       <MinimalRebuild>true</MinimalRebuild>
-      <PreprocessorDefinitions>$(EnginePreproc);%(PreprocessorDefinitions);_DEBUG</PreprocessorDefinitions>
+      <PreprocessorDefinitions>$(SamEnginePreproc);%(PreprocessorDefinitions);_DEBUG</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <DisableSpecificWarnings>4996;4333</DisableSpecificWarnings>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -143,7 +147,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>$(EnginePreproc);%(PreprocessorDefinitions);NDEBUG</PreprocessorDefinitions>
+      <PreprocessorDefinitions>$(SamEnginePreproc);%(PreprocessorDefinitions);NDEBUG</PreprocessorDefinitions>
       <DisableSpecificWarnings>4996;4333</DisableSpecificWarnings>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -178,7 +182,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>$(EnginePreproc);%(PreprocessorDefinitions);NDEBUG</PreprocessorDefinitions>
+      <PreprocessorDefinitions>$(SamEnginePreproc);%(PreprocessorDefinitions);NDEBUG</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <DisableSpecificWarnings>4996;4333</DisableSpecificWarnings>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -213,7 +217,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>$(EnginePreproc);%(PreprocessorDefinitions);NDEBUG</PreprocessorDefinitions>
+      <PreprocessorDefinitions>$(SamEnginePreproc);%(PreprocessorDefinitions);NDEBUG</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <DisableSpecificWarnings>4996;4333</DisableSpecificWarnings>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
