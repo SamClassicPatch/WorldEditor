@@ -562,6 +562,7 @@ BOOL CWorldEditorApp::SubInitInstance()
   CCoreAPI::SetApplication(CCoreAPI::APP_EDITOR);
 
   // [Cecil] Function patches
+  _EnginePatches.FileSystem();
   _EnginePatches.UnpageStreams();
 
   // initialize entire engine
