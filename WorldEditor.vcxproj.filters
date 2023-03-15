@@ -16,12 +16,6 @@
     <Filter Include="Wizard Files">
       <UniqueIdentifier>{7e7e7b5f-d4a7-4a8e-ab80-568057d12fdf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Cecil headers">
-      <UniqueIdentifier>{2ef2839d-80f8-4d5e-8668-d156d3b93820}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Cecil">
-      <UniqueIdentifier>{f9e0f7c1-ec78-41ec-a02e-98d3718c18db}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Dialogs headers">
       <UniqueIdentifier>{feef4a1e-39f9-4d51-a82c-69167df9f26a}</UniqueIdentifier>
     </Filter>
@@ -137,9 +131,6 @@
     </ClCompile>
     <ClCompile Include="WorldEditorView.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Cecil\EngineCompatibility.cpp">
-      <Filter>Source Files\Cecil</Filter>
     </ClCompile>
     <ClCompile Include="Dialogs\DlgSnapVertex.cpp">
       <Filter>Source Files\Dialogs</Filter>
@@ -384,9 +375,6 @@
     </ClInclude>
     <ClInclude Include="WorldEditorView.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Cecil\EngineCompatibility.h">
-      <Filter>Header Files\Cecil headers</Filter>
     </ClInclude>
     <ClInclude Include="Controls\CtlTipOfTheDayText.h">
       <Filter>Header Files\Controls headers</Filter>

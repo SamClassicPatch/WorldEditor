@@ -26,6 +26,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <sys/utime.h>
 #include <process.h>
 
+// [Cecil] Use new methods from Core
+#include <CoreLib/Interfaces/FileFunctions.h>
 
 #ifdef _DEBUG
 #undef new
@@ -1622,7 +1624,7 @@ void CWorldEditorApp::WriteToIniFileOnEnd(void)
   {
     CTFileName fnTextureForPrimitive( theApp.m_ptdActiveTexture->GetName());
     // [Cecil] CTFileName::SetAbsolutePath() doesn't exist before 1.10
-    SetAbsolutePath(fnTextureForPrimitive);
+    IFiles::SetAbsolutePath(fnTextureForPrimitive);
     strcpy( strIni, fnTextureForPrimitive);
     WriteProfileString( _T("World editor prefs"), _T("Default primitive texture"), CString(strIni));
   }
