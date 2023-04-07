@@ -561,9 +561,11 @@ BOOL CWorldEditorApp::SubInitInstance()
   // [Cecil] Mark as an editor
   CCoreAPI::SetApplication(CCoreAPI::APP_EDITOR);
 
+#if CLASSICSPATCH_ENGINEPATCHES
   // [Cecil] Function patches
   _EnginePatches.FileSystem();
   _EnginePatches.UnpageStreams();
+#endif
 
   // initialize entire engine
   SE_InitEngine("SeriousEditor");
