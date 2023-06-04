@@ -559,7 +559,7 @@ BOOL CWorldEditorApp::SubInitInstance()
 #endif
 
   // [Cecil] Mark as an editor
-  CCoreAPI::SetApplication(CCoreAPI::APP_EDITOR);
+  CCoreAPI::Setup(CCoreAPI::APP_EDITOR);
 
 #if CLASSICSPATCH_ENGINEPATCHES
   // [Cecil] Function patches
