@@ -574,8 +574,16 @@ BOOL CWorldEditorApp::SubInitInstance()
   // settings will be saved into registry instead of ini file
   if (_strModExt=="") {
     SetRegistryKey( CString("CroTeam"));
+
   } else {
-    SetRegistryKey( CString("CroTeam\\"+_strModExt));
+    // [Cecil] Use default registry if using custom libraries
+    CTString strCustomModExt = _strModExt;
+
+    if (strCustomModExt == "_Custom") {
+      LoadStringVar(_fnmApplicationPath + "ModExt.txt", strCustomModExt);
+    }
+
+    SetRegistryKey(CString("CroTeam\\" + strCustomModExt));
   }
 
   CPrintF("%s", cmd_strOutput);
