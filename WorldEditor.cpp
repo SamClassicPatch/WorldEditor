@@ -86,33 +86,6 @@ CTFileName fnmPersistentSymbols = CTString("Scripts\\PersistentSymbols.ini");
 #define INI_WRITE( strname)                                   \
   theApp.WriteProfileString( _T("World editor prefs"), CString( strname ), CString(strIni))
 
-void InitializeGame(void)
-{
-  try {
-    #ifndef NDEBUG 
-      #define GAMEDLL _fnmApplicationExe.FileDir()+"GameGUI"+_strModExt+"D.dll"
-    #else
-      #define GAMEDLL _fnmApplicationExe.FileDir()+"GameGUI"+_strModExt+".dll"
-    #endif
-    CTFileName fnmExpanded;
-    ExpandFilePath(EFP_READ, CTString(GAMEDLL), fnmExpanded);
-
-    HMODULE hGame = LoadLibraryA(fnmExpanded);
-    if (hGame==NULL) {
-      ThrowF_t("%s", GetWindowsError(GetLastError()));
-    }
-    GameGUI_interface* (*GAMEGUI_Create)(void) = (GameGUI_interface* (*)(void))GetProcAddress(hGame, "GAMEGUI_Create");
-    if (GAMEGUI_Create==NULL) {
-      ThrowF_t("%s", GetWindowsError(GetLastError()));
-    }
-    _pGameGUI = GAMEGUI_Create();
-
-  } catch (char *strError) {
-    FatalError("%s", strError);
-  }
-  _pGameGUI->Initialize(CTString("Data\\WorldEditor.gms"));
-}
-
 /////////////////////////////////////////////////////////////////////////////
 // CWorldEditorApp
 
@@ -710,8 +683,9 @@ BOOL CWorldEditorApp::SubInitInstance()
   // (re)set default display mode
   _pGfx->ResetDisplayMode((enum GfxAPIType) m_iApi);
 
-  // initialize game itself (GameShell interface) and load settings
-  InitializeGame();
+  // [Cecil] Load GameGUI library through the API
+  _pGameGUI = (GameGUI_interface *)GetAPI()->LoadGameGuiLib("Data\\WorldEditor.gms");
+
   // load startup script
   _pShell->Execute( "include \"Scripts\\WorldEditor_startup.ini\"");
 
