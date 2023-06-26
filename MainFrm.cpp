@@ -1296,7 +1296,7 @@ void CMainFrame::StartApplication( CTString strApplicationToRun)
   PROCESS_INFORMATION piProcessInformation;
 
   // create application name to run
-  CTFileName fnApplicationToRun = _fnmApplicationPath + strApplicationToRun;
+  CTFileName fnApplicationToRun = CCoreAPI::AppPath() + strApplicationToRun;
   // create process for modeler
   BOOL bSuccess = CreateProcessA(
     fnApplicationToRun,

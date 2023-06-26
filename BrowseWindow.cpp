@@ -473,7 +473,7 @@ HGLOBAL CreateHDrop( const CTFileName &fnToDrag, BOOL bAddAppPath/*=TRUE*/)
   CTFileName fnFullToDrag;
   if( bAddAppPath)
   {
-    fnFullToDrag = _fnmApplicationPath + fnToDrag;
+    fnFullToDrag = CCoreAPI::AppPath() + fnToDrag;
   }
   else
   {
@@ -1181,7 +1181,7 @@ void CBrowseWindow::OnLButtonDblClk(UINT nFlags, CPoint point)
 #endif
     {
       // set it as new primitive's material default texture
-      theApp.SetNewActiveTexture( _fnmApplicationPath + fnItem);
+      theApp.SetNewActiveTexture(CCoreAPI::AppPath() + fnItem);
       // paste new active texture over polygon selection
       theApp.TexturizeSelection();
     }
@@ -1190,7 +1190,7 @@ void CBrowseWindow::OnLButtonDblClk(UINT nFlags, CPoint point)
   else if( fnItem.FileExt() == ".wld")
   {
     // open document with item's file name
-    theApp.m_pDocTemplate->OpenDocumentFile( CString(_fnmApplicationPath + fnItem));
+    theApp.m_pDocTemplate->OpenDocumentFile(CString(CCoreAPI::AppPath() + fnItem));
   }
 }
 
@@ -1257,7 +1257,7 @@ void CBrowseWindow::OnSelectForDropMarker()
 void CBrowseWindow::OnSetAsCurrentTexture()
 {
   // set it as new primitive's material default texture
-  theApp.SetNewActiveTexture( _fnmApplicationPath + _fnRightClickedItemFileName);
+  theApp.SetNewActiveTexture(CCoreAPI::AppPath() + _fnRightClickedItemFileName);
 }
 
 void CBrowseWindow::OnConvertClass()

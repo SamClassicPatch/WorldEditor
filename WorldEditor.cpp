@@ -580,7 +580,7 @@ BOOL CWorldEditorApp::SubInitInstance()
     CTString strCustomModExt = _strModExt;
 
     if (strCustomModExt == "_Custom") {
-      LoadStringVar(_fnmApplicationPath + "ModExt.txt", strCustomModExt);
+      LoadStringVar(CCoreAPI::AppPath() + "ModExt.txt", strCustomModExt);
     }
 
     SetRegistryKey(CString("CroTeam\\" + strCustomModExt));
@@ -593,13 +593,11 @@ BOOL CWorldEditorApp::SubInitInstance()
   if (strDefaultTexture == _T("")) {
     // load registry from the ini file
     CTString strCommand;
-    strCommand.PrintF("regedit.exe -s \"%s%s\"",
-      (const CTString&)_fnmApplicationPath,
-      (const CTString&)CTString("Data\\Defaults\\WorldEditor.reg"));
+    strCommand.PrintF("regedit.exe -s \"%sData\\Defaults\\WorldEditor.reg\"", CCoreAPI::AppPath().str_String);
     system(strCommand);
 /*    _spawnlp(_P_WAIT, "regedit.exe", 
       "-s",
-      (const CTString&)(_fnmApplicationPath+CTString("Data\\Defaults\\WorldEditor.reg")),
+      (CCoreAPI::AppPath() + "Data\\Defaults\\WorldEditor.reg").str_String),
       NULL);
     */
   }
@@ -749,7 +747,7 @@ BOOL CWorldEditorApp::SubInitInstance()
   cmdInfo.m_nShellCommand = CCommandLineInfo::FileNothing;
 
   // create temporary directory to contain undo files
-  CreateDirectoryA( _fnmApplicationPath + "Temp\\", NULL);
+  CreateDirectoryA(CCoreAPI::AppPath() + "Temp\\", NULL);
 
   // try to
   try
@@ -983,7 +981,7 @@ void CWorldEditorApp::ReadFromIniFileOnInit(void)
   // if exists in ini file
   if( strTexture != _T(""))
   {
-    theApp.SetNewActiveTexture( _fnmApplicationPath + MfcStringToCT(strTexture));
+    theApp.SetNewActiveTexture(CCoreAPI::AppPath() + MfcStringToCT(strTexture));
   }
 
 #if SE1_TERRAINS
@@ -2259,7 +2257,7 @@ void CWorldEditorApp::OnFileOpen()
   FOREACHINDYNAMICARRAY( afnOpenedWorlds, CTFileName, itWorld)
   {
     // try to load document
-    m_pDocTemplate->OpenDocumentFile( CString(_fnmApplicationPath+itWorld.Current()));
+    m_pDocTemplate->OpenDocumentFile(CString(CCoreAPI::AppPath() + itWorld.Current()));
   }
 }
 
@@ -2330,7 +2328,7 @@ void CWorldEditorApp::OnConvertWorlds()
 
       // convert needed type of object
       fnmFile = CTString( achrLine);
-      fnmFileFull = _fnmApplicationPath+fnmFile;
+      fnmFileFull = CCoreAPI::AppPath() + fnmFile;
       fnmExt  = fnmFile.FileExt();
       struct _stat    FileStat;
       struct _utimbuf FileTime;
@@ -2573,7 +2571,7 @@ void CWorldEditorApp::OnImport3DObject()
 
   pDoc->SetModifiedFlag();
   // set document name and don't add it into MRU
-  //pDoc->SetPathName( _fnmApplicationPath+"Worlds\\"+"Untitled.wld", FALSE);
+  //pDoc->SetPathName(CCoreAPI::AppPath() + "Worlds\\"+"Untitled.wld", FALSE);
   //pDoc->SetTitle( fn3D.FileName() + ".wld");
   m_pDocTemplate->InitialUpdateFrame(pFrame, pDoc, TRUE);
   pDoc->SetModifiedFlag( TRUE);
@@ -2937,7 +2935,7 @@ void CWorldEditorApp::DisplayHelp(const CTFileName &fnHlk, UINT uCommand, DWORD 
       sscanf( strString, "\"%1024[^\"]\"", aExePath);
 
       CTString strCommand = "\""+CTString(aExePath)+"\"";
-      CTString strInputParam = "\""+_fnmApplicationPath+strHelpPath+"\"";
+      CTString strInputParam = "\"" + CCoreAPI::AppPath() + strHelpPath + "\"";
       const char *argv[4];
       argv[0] = strCommand;
       argv[1] = strInputParam;
@@ -2949,7 +2947,7 @@ void CWorldEditorApp::DisplayHelp(const CTFileName &fnHlk, UINT uCommand, DWORD 
     {
 #if SE1_HTMLHELP
       HtmlHelp(dwData);
-      //HtmlHelp(NULL, _fnmApplicationPath+strHelpPath, uCommand, dwData);
+      //HtmlHelp(NULL, CCoreAPI::AppPath() + strHelpPath, uCommand, dwData);
 #endif
       return;
     }
@@ -2960,7 +2958,7 @@ void CWorldEditorApp::DisplayHelp(const CTFileName &fnHlk, UINT uCommand, DWORD 
   }
 #if SE1_HTMLHELP
   HtmlHelp(dwData);
-  //HtmlHelp(NULL, _fnmApplicationPath+"Help\\ToolsHelp.chm::/SeriousEditor/Overview.htm", uCommand, dwData);
+  //HtmlHelp(NULL, CCoreAPI::AppPath() + "Help\\ToolsHelp.chm::/SeriousEditor/Overview.htm", uCommand, dwData);
 #endif
 }
 
