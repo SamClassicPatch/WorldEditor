@@ -550,13 +550,8 @@ BOOL CWorldEditorApp::SubInitInstance()
 
   } else {
     // [Cecil] Use default registry if using custom libraries
-    CTString strCustomModExt = _strModExt;
-
-    if (strCustomModExt == "_Custom") {
-      LoadStringVar(CCoreAPI::AppPath() + "ModExt.txt", strCustomModExt);
-    }
-
-    SetRegistryKey(CString("CroTeam\\" + strCustomModExt));
+    CTString strVanillaExt = CCoreAPI::IsCustomModActive() ? CCoreAPI::GetVanillaExt() : _strModExt;
+    SetRegistryKey(CString("CroTeam\\" + strVanillaExt));
   }
 
   CPrintF("%s", cmd_strOutput);
