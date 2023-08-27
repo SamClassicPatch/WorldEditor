@@ -1274,6 +1274,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #define ID_EXPORT_HEIGHTMAP16           33355
 #define ID_CHANGE_HIEGHTMAP_SIZE        33356
 #define ID_CHANGE_HEIGHTMAP_SIZE        33357
+#define ID_EXPORT_B2WHEIGHTMAP          33358
 #define ID_TEXTURE_MODE_4               -32178
 #define ID_TEXTURE_MODE_5               -32177
 #define ID_TEXTURE_MODE_6               -32176

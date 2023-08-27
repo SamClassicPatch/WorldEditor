@@ -557,6 +557,7 @@ public:
   afx_msg void OnExportHeightmap();
   afx_msg void OnImportHeightmap16();
   afx_msg void OnExportHeightmap16();
+  afx_msg void OnExportB2WHeightmap(); // [Cecil]
   afx_msg void OnSelectLayer();
   afx_msg void OnPickLayer();
   afx_msg void OnPosterize();

@@ -322,6 +322,7 @@ BEGIN_MESSAGE_MAP(CWorldEditorView, CView)
   ON_COMMAND(ID_EXPORT_HEIGHTMAP, OnExportHeightmap)
   ON_COMMAND(ID_IMPORT_HEIGHTMAP16, OnImportHeightmap16)
   ON_COMMAND(ID_EXPORT_HEIGHTMAP16, OnExportHeightmap16)
+  ON_COMMAND(ID_EXPORT_B2WHEIGHTMAP, OnExportB2WHeightmap) // [Cecil]
   ON_COMMAND(ID_SELECT_LAYER, OnSelectLayer)
   ON_COMMAND(ID_PICK_LAYER, OnPickLayer)
   ON_COMMAND(ID_POSTERIZE, OnPosterize)
@@ -3714,6 +3715,7 @@ void CWorldEditorView::CallPopupMenu(CPoint point)
           pPopup->EnableMenuItem( ID_IMPORT_HEIGHTMAP16, MF_DISABLED|MF_GRAYED);
           pPopup->EnableMenuItem( ID_EXPORT_HEIGHTMAP, MF_DISABLED|MF_GRAYED);
           pPopup->EnableMenuItem( ID_EXPORT_HEIGHTMAP16, MF_DISABLED|MF_GRAYED);
+          pPopup->EnableMenuItem( ID_EXPORT_B2WHEIGHTMAP, MF_DISABLED|MF_GRAYED); // [Cecil]
           pPopup->EnableMenuItem( ID_VIEW_HEIGHTMAP, MF_DISABLED|MF_GRAYED);
 
           CTerrainLayer *ptlLayer=GetLayer();
@@ -13531,6 +13533,11 @@ void CWorldEditorView::OnExportHeightmap16()
 {
   ApplyImportExport(3);
 }
+
+// [Cecil] Export height map for terrain primitives
+void CWorldEditorView::OnExportB2WHeightmap() {
+  ApplyImportExport(4);
+};
 
 void CWorldEditorView::OnSelectLayer() 
 {
