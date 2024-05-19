@@ -4650,12 +4650,18 @@ void CWorldEditorDoc::OnPopupVtxNumeric()
 
 void CWorldEditorDoc::OnExportPlacements()
 {
+  // [Cecil] Open save dialog ("entity placement and names")
+  const CTFileName &fnWorld = m_woWorld.wo_fnmFileName;
+  const CTString strDir = fnWorld.FileDir();
+  const CTString strFile = fnWorld.FileName() + ".epn";
+
+  CTFileName fnExport = _EngineGUI.FileRequester("Export placements as",
+    "Entity Placement and Names (*.epn)\0*.epn\0" FILTER_ALL FILTER_END, "Export geometry directory", strDir, strFile);
+  if (fnExport == "") return;
+
   CStaticStackArray<CTString> astrNeddedSmc;
   try
   {
-    CTFileName fnWorld=m_woWorld.wo_fnmFileName;
-    // "entity placement and names"
-    CTFileName fnExport=fnWorld.FileDir()+fnWorld.FileName()+".epn";
     // open text file
     CTFileStream strmFile;
     strmFile.Create_t( fnExport, CTStream::CM_TEXT);
@@ -4736,8 +4742,8 @@ void CWorldEditorDoc::OnExportPlacements()
       }
     }
     
-    // "entity placement and names"
-    CTFileName fnSml=fnWorld.FileDir()+fnWorld.FileName()+".sml";
+    // [Cecil] Change extension to "SKA model list"
+    CTFileName fnSml = fnExport.NoExt() + ".sml";
     // open text file
     CTFileStream strmSmlFile;
     strmSmlFile.Create_t( fnSml, CTStream::CM_TEXT);
@@ -5434,12 +5440,18 @@ void ExportEntityToAMF_t(CWorldEditorDoc *pDoc, CEntity &en, const CTFileName &f
 
 void CWorldEditorDoc::OnExportEntities()
 {
+  // [Cecil] Open save dialog ("ASCII World Format")
+  const CTFileName &fnWorld = m_woWorld.wo_fnmFileName;
+  const CTString strDir = fnWorld.FileDir();
+  const CTString strFile = fnWorld.FileName() + ".awf";
+
+  CTFileName fnExport = _EngineGUI.FileRequester("Export entities as",
+    "ASCII World Format (*.awf)\0*.awf\0" FILTER_ALL FILTER_END, "Export geometry directory", strDir, strFile);
+  if (fnExport == "") return;
+
   CStaticStackArray<CTString> astrNeddedSmc;
   try
   {
-    CTFileName fnWorld=m_woWorld.wo_fnmFileName;
-    // "entity placement and names"
-    CTFileName fnExport=fnWorld.FileDir()+fnWorld.FileName()+".awf";
     // open text file
     CTFileStream strmFile;
     strmFile.Create_t( fnExport, CTStream::CM_TEXT);
@@ -5656,7 +5668,7 @@ void CWorldEditorDoc::OnExportEntities()
         CTString strEntityID;
         strEntityID.PrintF("%d", en.en_ulID);
         CTFileName fnAmf;
-        fnAmf.PrintF("%s_%s.amf", fnWorld.FileDir()+fnWorld.FileName(), strEntityID);
+        fnAmf.PrintF("%s_%s.amf", fnExport.NoExt().str_String, strEntityID);
         BOOL bFieldBrush = en.en_RenderType==CEntity::RT_FIELDBRUSH;
         ExportEntityToAMF_t(this, en, fnAmf, bFieldBrush, bInvisibleBrush, bEmptyBrush);
       }
@@ -5670,8 +5682,8 @@ void CWorldEditorDoc::OnExportEntities()
     strLine.PrintF("}");
     strmFile.PutLine_t(strLine);
     
-    // "entity placement and names"
-    CTFileName fnSml=fnWorld.FileDir()+fnWorld.FileName()+".sml";
+    // [Cecil] Change extension to "SKA model list"
+    CTFileName fnSml = fnExport.NoExt() + ".sml";
     // open text file
     CTFileStream strmSmlFile;
     strmSmlFile.Create_t( fnSml, CTStream::CM_TEXT);

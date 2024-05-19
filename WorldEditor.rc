@@ -429,15 +429,21 @@ BEGIN
             MENUITEM "Open for &Add",               ID_CHECK_ADD
             MENUITEM "Open for &Delete",            ID_CHECK_DELETE
         END
-        MENUITEM "&Export 3D Object",           ID_EXPORT_3D_OBJECT
-        MENUITEM "&Import 3D Object(s)",        ID_IMPORT_3D_OBJECT
-        MENUITEM "Inse&rt 3D Object(s)",        ID_INSERT_3D_OBJECT
-        MENUITEM "Convert list",                ID_CONVERT_WORLDS
         MENUITEM "&Close",                      ID_FILE_CLOSE
         MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
         MENUITEM "Save &As...\tCtrl+Shift+S",   ID_FILE_SAVE_AS
         MENUITEM "Save t&humbnail",             ID_SAVE_THUMBNAIL
         MENUITEM "Take screen shoot\tAlt+C",    ID_TAKE_SS
+        MENUITEM SEPARATOR
+        POPUP "&Export"
+        BEGIN
+            MENUITEM "&Export 3D Object",            ID_EXPORT_3D_OBJECT
+            MENUITEM "Export e&ntities\tF11",         ID_EXPORT_ENTITIES
+            MENUITEM "Export &placements\tShift+F11", ID_EXPORT_PLACEMENTS
+        END
+        MENUITEM "&Import 3D Object(s)",        ID_IMPORT_3D_OBJECT
+        MENUITEM "Inse&rt 3D Object(s)",        ID_INSERT_3D_OBJECT
+        MENUITEM "Convert list",                ID_CONVERT_WORLDS
         MENUITEM SEPARATOR
         MENUITEM "Create &texture\tCtrl+T",     ID_CREATE_TEXTURE
         MENUITEM "Preferences\tCtrl+P",         ID_FILE_PREFERENCES
@@ -3608,6 +3614,8 @@ BEGIN
     ID_IMPORT_3D_OBJECT     "Insert 3D object(s) to a current document"
     ID_INSERT_3D_OBJECT     "Insert 3D object(s) to a current document"
     ID_EXPORT_3D_OBJECT     "Export selected polygons as 3D object"
+    ID_EXPORT_ENTITIES      "Export entities in ASCII world format for use in Serious Engine 2+"
+    ID_EXPORT_PLACEMENTS    "Export entity placements for use in Serious Engine 2+"
     ID_POPUP_VTX_NUMERIC    "Set vertex coordinates numerically\nSet vertex coordinates numerically"
     ID_POPUP_VTX_ALLIGN     "Align to last vertex\nAlign to last vertex"
     ID_POPUP_VTX_FILTER     "Filter vertices\nFilter vertices"
