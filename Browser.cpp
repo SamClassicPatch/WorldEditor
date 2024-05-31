@@ -466,7 +466,7 @@ CTFileName CBrowser::GetIOFileName(CTString strTitle, BOOL bSave)
   ofnSaveVirtualTree.nMaxFile = 256;
 
   char strInitDir[ 256];
-  strcpy(strInitDir, CCoreAPI::AppPath() + pMainFrame->m_fnLastVirtualTree.FileDir());
+  strcpy(strInitDir, IDir::AppPath() + pMainFrame->m_fnLastVirtualTree.FileDir());
   ofnSaveVirtualTree.lpstrInitialDir = strInitDir;
   ofnSaveVirtualTree.lpstrTitle = strTitle;
   ofnSaveVirtualTree.Flags = OFN_EXPLORER | OFN_ENABLEHOOK;

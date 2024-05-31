@@ -3790,7 +3790,7 @@ void CWorldEditorView::CallPopupMenu(CPoint point)
           pPopup->EnableMenuItem(ID_SELECT_DESCENDANTS, MF_DISABLED|MF_GRAYED);
         }
         // if clipboard world does not exist
-        if( GetFileAttributesA(CCoreAPI::AppPath() + "Temp\\ClipboardWorld.wld") == -1)
+        if( GetFileAttributesA(IDir::AppPath() + "Temp\\ClipboardWorld.wld") == -1)
         {
           // disable pasting
           pPopup->EnableMenuItem(ID_EDIT_PASTE, MF_DISABLED|MF_GRAYED);
@@ -7057,7 +7057,7 @@ void CWorldEditorView::OnCopyTexture()
         // get name from serial object
         CTFileName fnTextureName = pTD->GetName();
         // set it as new active texture
-        theApp.SetNewActiveTexture( CCoreAPI::AppPath() + fnTextureName);
+        theApp.SetNewActiveTexture( IDir::AppPath() + fnTextureName);
       }
     }
   }
