@@ -529,9 +529,9 @@ BOOL CWorldEditorApp::SubInitInstance()
 #endif
 
   // [Cecil] Mark as an editor
-  CCoreAPI::Setup(CCoreAPI::APP_EDITOR);
+  ClassicsPatch_Setup(k_EClassicsPatchAppType_Editor);
 
-#if CLASSICSPATCH_ENGINEPATCHES
+#if _PATCHCONFIG_ENGINEPATCHES
   // [Cecil] Function patches
   _EnginePatches.FileSystem();
   _EnginePatches.UnpageStreams();
@@ -547,7 +547,7 @@ BOOL CWorldEditorApp::SubInitInstance()
 
   } else {
     // [Cecil] Use default registry if using custom libraries
-    CTString strVanillaExt = CCoreAPI::IsCustomModActive() ? CCoreAPI::GetVanillaExt() : _strModExt;
+    CTString strVanillaExt = ClassicsCore_IsCustomModActive() ? ClassicsCore_GetVanillaExt() : _strModExt;
     SetRegistryKey(CString("CroTeam\\" + strVanillaExt));
   }
 
@@ -676,7 +676,7 @@ BOOL CWorldEditorApp::SubInitInstance()
   _pGfx->ResetDisplayMode((enum GfxAPIType) m_iApi);
 
   // [Cecil] Load GameGUI library through the API
-  _pGameGUI = (GameGUI_interface *)GetAPI()->LoadGameGuiLib("Data\\WorldEditor.gms");
+  _pGameGUI = (GameGUI_interface *)GetPluginAPI()->LoadGameGuiLib("Data\\WorldEditor.gms");
 
   // load startup script
   _pShell->Execute( "include \"Scripts\\WorldEditor_startup.ini\"");
